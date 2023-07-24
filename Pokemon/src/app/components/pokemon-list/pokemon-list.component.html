@@ -1,1 +1,14 @@
+
 <p>pokemon-list works!</p>
+<h1>Pokemon List</h1>
+<div class="pokemon-list">
+
+    <div class="pokemon-container" *ngFor="let pokemon of pokemons">
+      <img [src]="pokemon.image" alt="Image of {{ pokemon.name }}" class="pokemon-image">
+      <h2 class="pokemon-name">{{ pokemon.name }}</h2>
+      <p class="pokemon-id">#{{ pokemon.id }}</p>
+      <button>Catch</button>
+      <button>Details</button>
+    </div>
+  </div>
+  
