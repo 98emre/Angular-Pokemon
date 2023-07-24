@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-page',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ProfilePageComponent {
 
+  constructor(private readonly route : Router){
+    if(sessionStorage.getItem("username") != null || sessionStorage.getItem("username")?.trim() != "") {
+      this.route.navigateByUrl("catalogue")
+    }
+  }
 }

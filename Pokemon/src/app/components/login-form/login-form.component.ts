@@ -8,9 +8,10 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent {
 
-  username?: string = "not logged"
+  username?: string = ""
 
   constructor(private readonly route : Router){
+
   }
 
   login(){
