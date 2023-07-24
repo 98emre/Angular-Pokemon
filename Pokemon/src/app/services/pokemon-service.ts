@@ -27,4 +27,20 @@ export class PokemonService {
       })
     );
   }
+
+  getPokemonDetails(name: string) {
+    return this.http.get<any>('https://pokeapi.co/api/v2/pokemon/' + name)
+      .pipe(
+        map((response: any) => {
+          const pokemon = {
+            name: response.name,
+            types: response.types.map((typeData: any) => typeData.type.name),
+          };
+          return {pokemon}
+        })
+      );
+  }
+
+
+
 }
