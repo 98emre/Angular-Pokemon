@@ -9,7 +9,8 @@ import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { CataloguePageComponent } from './pages/catalogue-page/catalogue-page.component';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule} from '@angular/common/http';
+import { ErrorPageComponent } from './pages/error-page/error-page.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule} from '@angular/common/http'
     PokemonListItemComponent,
     LoginPageComponent,
     ProfilePageComponent,
-    CataloguePageComponent
+    CataloguePageComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

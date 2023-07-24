@@ -1,2 +1,10 @@
-<h1>Main Page</h1>
+
+
+<nav *ngIf="isUserLoggedIn()" >
+    <ul>
+        <li><a routerLink="profile">Profile</a></li>
+        <li><a routerLink="catalogue">Catalogue</a></li>
+    </ul>
+</nav>
+
 <router-outlet></router-outlet>
