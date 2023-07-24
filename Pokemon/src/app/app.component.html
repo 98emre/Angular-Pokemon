@@ -1,6 +1,7 @@
-<nav>
+
+
+<nav *ngIf="isUserLoggedIn()" >
     <ul>
-        <li><a routerLink="">Login</a></li>
         <li><a routerLink="profile">Profile</a></li>
         <li><a routerLink="catalogue">Catalogue</a></li>
     </ul>

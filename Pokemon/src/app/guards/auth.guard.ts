@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    state: RouterStateSnapshot): boolean {
 
       if(sessionStorage.getItem("username") === null || sessionStorage.getItem("username")?.trim() === "") {
         return false;
