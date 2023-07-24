@@ -4,6 +4,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { CataloguePageComponent } from './pages/catalogue-page/catalogue-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 const routes: Routes = [
   {
@@ -20,9 +21,12 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard]
+  },
+
+  {
+    path: '**',
+    component: ErrorPageComponent,
   }
-
-
 ];
 
 @NgModule({
