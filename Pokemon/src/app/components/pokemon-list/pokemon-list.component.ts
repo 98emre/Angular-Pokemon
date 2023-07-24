@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-const imageBaseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
-const png = ".png"
+import { PokemonService } from 'src/app/services/pokemon-service';
 
 @Component({
   selector: 'app-pokemon',
@@ -12,24 +9,11 @@ const png = ".png"
 export class PokemonListComponent implements OnInit {
   pokemons: any = [];
   
-  constructor(private http: HttpClient) {}
-
+  constructor(private pokemonService: PokemonService) {}
 
   ngOnInit() {
-    this.http
-      .get('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0')
-      .subscribe((data: any) => {
-        this.pokemons = data.results.map((pokemon: any) => {
-          let parts = pokemon.url.split('/');
-          let id = parts[parts.length - 2];
-          let imageUrl = imageBaseUrl + id + png;
-          let name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1).toLowerCase();
-          this.http
-
-          return { ...pokemon, id: +id, name: name, image: imageUrl};
-        });
-      });
-
+    this.pokemonService.getPokemons().subscribe((pokemons: any[]) => {
+      this.pokemons = pokemons;
+    });
   }
-  
 }
