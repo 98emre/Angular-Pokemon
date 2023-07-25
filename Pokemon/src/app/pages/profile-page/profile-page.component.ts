@@ -8,9 +8,5 @@ import { Router } from '@angular/router';
 })
 export class ProfilePageComponent {
 
-  constructor(private readonly route : Router){
-    if(sessionStorage.getItem("username") != null || sessionStorage.getItem("username")?.trim() != "") {
-      this.route.navigateByUrl("catalogue")
-    }
-  }
+  constructor() { }
 }

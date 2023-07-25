@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,12 +6,14 @@ import { Router } from '@angular/router';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit{
 
-  constructor(private readonly route : Router){
-    if(sessionStorage.getItem("username") != null || sessionStorage.getItem("username")?.trim() != "") {
-      this.route.navigateByUrl("catalogue")
-    }
-   }
+  constructor() { }
+  
+  
+  ngOnInit(): void {
+
+  }
+
 
 }

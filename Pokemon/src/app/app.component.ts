@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthGuard } from './guards/auth.guard';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +10,19 @@ import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/ro
 })
 
 
-export class AppComponent {
+export class AppComponent implements OnInit{
   
-  constructor(private authGuard: AuthGuard, private route: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
+
+  ngOnInit(): void {
+    if(this.userService.isUserLoggedIn()){
+      this.router.navigate(["/catalogue"])
+    } else[
+      this.router.navigate(["/"])
+    ]
+  }
 
   isUserLoggedIn(): boolean {
-    const currentRoute: ActivatedRouteSnapshot = this.route.routerState.snapshot.root;
-    const currentState: RouterStateSnapshot = this.route.routerState.snapshot;
-
-    return this.authGuard.canActivate(currentRoute, currentState);
+    return this.userService.isUserLoggedIn();
   }
 }

@@ -9,6 +9,7 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 const routes: Routes = [
   {
     path: '',
+    pathMatch: "full",
     component:LoginPageComponent,
   },
   {
