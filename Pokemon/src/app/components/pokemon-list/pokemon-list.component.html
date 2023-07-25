@@ -1,3 +1,16 @@
+<div class="pagination-container">
+  <div class="pagination">
+    <a (click)="pageChanged(currentPage - 1)">&laquo;</a>
+    <a (click)="pageChanged(0)">1</a>
+    <a (click)="pageChanged(1)">2</a>
+    <a (click)="pageChanged(2)">3</a>
+    <a (click)="pageChanged(3)">4</a>
+    <a (click)="pageChanged(4)">5</a>
+    <a (click)="pageChanged(5)">6</a>
+    <a (click)="pageChanged(currentPage + 1)">&raquo;</a>
+  </div></div>
+  
+
 <div class="pokemon-list">
   <div class="pokemon-container" *ngFor="let pokemon of pokemons">
     <img
@@ -16,18 +29,28 @@
     </div>
 
     <ng-container *ngIf="!isCaught(pokemon); else caughtTemplate">
-      <button (click)="handleCatchClick(pokemon)">Catch</button>
+      <button (click)="handleCatchClick(pokemon)" type="button">Catch</button>
     </ng-container>
 
     <ng-template #caughtTemplate>
       <div class="pokeball">
-        <img src="assets/small-pokeball-icon-4.jpg"/>
+        <img src="assets/small-pokeball-icon-4.jpg" alt="pokeball" (click)="removeCatch(pokemon)"/>
       </div>
     </ng-template>
 
-    <button *ngIf="!pokemon.detailsVisible" (click)="handleDetailsClick(pokemon)">Details</button>
-    <button *ngIf="pokemon.detailsVisible" (click)="handleDetailsClick(pokemon)">Hide Details</button>
+    <button *ngIf="!pokemon.detailsVisible" (click)="handleDetailsClick(pokemon)"type="button">Details</button>
+    <button *ngIf="pokemon.detailsVisible" (click)="handleDetailsClick(pokemon)"type="button">Hide Details</button>
   </div>
 </div>
-<button (click)="pageChanged(currentPage -1)">Change Page backwards</button>
-<button (click)="pageChanged(currentPage + 1)">Change Page forward</button>
+
+<div class="pagination-container">
+<div class="pagination">
+  <a (click)="pageChanged(currentPage - 1)">&laquo;</a>
+  <a (click)="pageChanged(0)">1</a>
+  <a (click)="pageChanged(1)">2</a>
+  <a (click)="pageChanged(2)">3</a>
+  <a (click)="pageChanged(3)">4</a>
+  <a (click)="pageChanged(4)">5</a>
+  <a (click)="pageChanged(5)">6</a>
+  <a (click)="pageChanged(currentPage + 1)">&raquo;</a>
+</div></div>

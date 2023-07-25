@@ -12,7 +12,7 @@ export class PokemonListComponent implements OnInit {
 
 
   currentPage: number = 0;
-  itemsPerPage: number = 50
+  itemsPerPage: number = 48
   maxPages: number = 10;
 
   constructor(private pokemonService: PokemonService) {}
@@ -21,7 +21,11 @@ export class PokemonListComponent implements OnInit {
     this.pageChanged(0);
   }
 
-  pageChanged(newPage: number) {
+  pageChanged(newPage: number, ) {
+    if(newPage < 0 || newPage >= this.maxPages){
+      console.error("Page doesn't exist, pagenmr: ", newPage)
+    }
+
     this.currentPage = newPage;
     this.pokemonService.getPokemons(this.currentPage * this.itemsPerPage, this.itemsPerPage).subscribe((pokemons: any[]) => {
       this.pokemons = pokemons;
@@ -31,7 +35,12 @@ export class PokemonListComponent implements OnInit {
 
   handleCatchClick(pokemon: any) {
     this.caughtPokemons.push(pokemon.name);
-    console.log(pokemon);
+  }
+  removeCatch(pokemon: any){
+    const index = this.caughtPokemons.indexOf(pokemon.name);
+    if (index > -1) {
+      this.caughtPokemons.splice(index, 1);
+    }
   }
 
   isCaught(pokemon: any) {
