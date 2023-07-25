@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms'; 
+import { HttpClientModule} from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -9,7 +12,6 @@ import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { CataloguePageComponent } from './pages/catalogue-page/catalogue-page.component';
-import { HttpClientModule} from '@angular/common/http';
 import { ErrorPageComponent } from './pages/error-page/error-page.component'
 
 @NgModule({
@@ -27,7 +29,8 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

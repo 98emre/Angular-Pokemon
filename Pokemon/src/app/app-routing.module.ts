@@ -5,12 +5,14 @@ import { CataloguePageComponent } from './pages/catalogue-page/catalogue-page.co
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { LoginFormGuard } from './guards/login-form.guard';
 
 const routes: Routes = [
   {
     path: '',
-    pathMatch: "full",
+    pathMatch: 'full',
     component:LoginPageComponent,
+    canActivate: [LoginFormGuard]
   },
   {
     path:'catalogue',
