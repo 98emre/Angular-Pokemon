@@ -9,7 +9,6 @@ import { PokemonService } from 'src/app/services/pokemon-service';
 export class PokemonListComponent implements OnInit {
   pokemons: any = [];
   caughtPokemons: any = [];
-  detailBool: boolean = false;
 
   constructor(private pokemonService: PokemonService) {}
 
@@ -32,15 +31,20 @@ export class PokemonListComponent implements OnInit {
     return this.caughtPokemons.includes(pokemon.name);
   }
   handleDetailsClick(pokemon: any): any {
-    this.detailBool = true;
-    this.pokemonService.getPokemonDetails(pokemon.name.toLowerCase()).subscribe(
-      (response) => {
-        console.log(response);
-        alert(response.pokemonDetails.name + response.pokemonDetails.attack);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+    if (!pokemon.details) {
+      this.pokemonService.getPokemonDetails(pokemon.name.toLowerCase()).subscribe(
+        (response) => {
+          pokemon.details = response.pokemonDetails;
+          pokemon.detailsVisible = true;
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    } else {
+      pokemon.detailsVisible = !pokemon.detailsVisible;
+    }
   }
+  
+  
 }

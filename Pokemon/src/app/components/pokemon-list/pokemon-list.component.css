@@ -8,12 +8,12 @@
 
 .pokemon-container {
   position: relative;
-  flex: 1 0 21%;  /* grow | shrink | basis */
+  flex: 1 0 21%; 
   box-sizing: border-box;
   margin-left: 20%;
   margin: 1%;
   padding: 20px;
-  border: 1px solid #000;
+  border: 1px solid #000000;
   text-align: center;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
@@ -29,8 +29,13 @@
 }
 
 .pokemon-id {
-  font-size: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px;
+  font-size: 18px;
   color: #000000;
+  background-color: lightgray;
 }
 
 h1 {
@@ -42,4 +47,9 @@ h1 {
   top: 0;
   right: 0;
   width: 75px;
+  margin-top: 8px;
+}
+button{
+  background-color: lightgrey;
+  margin-left: 5px;
 }

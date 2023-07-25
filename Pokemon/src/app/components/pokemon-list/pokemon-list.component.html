@@ -8,6 +8,13 @@
     <h2 class="pokemon-name">{{ pokemon.name }}</h2>
     <p class="pokemon-id">#{{ pokemon.id }}</p>
 
+    <div *ngIf="pokemon.detailsVisible">
+      <p>HP: {{ pokemon.details?.hp }}</p>
+      <p>Attack: {{ pokemon.details?.attack }}</p>
+      <p>Defense: {{ pokemon.details?.defense }}</p>
+      <p>Type: {{ pokemon.details?.types }}</p>
+    </div>
+
     <ng-container *ngIf="!isCaught(pokemon); else caughtTemplate">
       <button (click)="handleCatchClick(pokemon)">Catch</button>
     </ng-container>
@@ -17,6 +24,8 @@
         <img src="assets/small-pokeball-icon-4.jpg" />
       </div>
     </ng-template>
-    <button (click)="handleDetailsClick(pokemon)">Details</button>
+
+    <button *ngIf="!pokemon.detailsVisible" (click)="handleDetailsClick(pokemon)">Details</button>
+    <button *ngIf="pokemon.detailsVisible" (click)="handleDetailsClick(pokemon)">Hide Details</button>
   </div>
 </div>
