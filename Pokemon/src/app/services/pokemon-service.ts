@@ -13,8 +13,8 @@ export class PokemonService {
 
   constructor(private http: HttpClient) { }
 
-  getPokemons(): Observable<any[]> {
-    return this.http.get('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0').pipe(
+  getPokemons( offset: number, limit: number,): Observable<any[]> {
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`).pipe(
       map((data: any) => {
         return data.results.map((pokemon: any) => {
           let parts = pokemon.url.split('/');
@@ -32,9 +32,10 @@ export class PokemonService {
     return this.http.get<any>('https://pokeapi.co/api/v2/pokemon/' + name)
       .pipe(
         map((response: any) => {
+          const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1);
           const pokemonDetails = {
-            name: response.name,
-            types: response.types.map((typeData: any) => typeData.type.name),
+            name: capitalize(response.name),
+            types: response.types.map((typeData: any) => capitalize(typeData.type.name)),
             weight: response.weight,
             height: response.height,
             hp: response.stats.find((stat: any) => stat.stat.name === 'hp').base_stat,

@@ -10,11 +10,22 @@ export class PokemonListComponent implements OnInit {
   pokemons: any = [];
   caughtPokemons: any = [];
 
+
+  currentPage: number = 0;
+  itemsPerPage: number = 50
+  maxPages: number = 10;
+
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit() {
-    this.pokemonService.getPokemons().subscribe((pokemons: any[]) => {
+    this.pageChanged(0);
+  }
+
+  pageChanged(newPage: number) {
+    this.currentPage = newPage;
+    this.pokemonService.getPokemons(this.currentPage * this.itemsPerPage, this.itemsPerPage).subscribe((pokemons: any[]) => {
       this.pokemons = pokemons;
+      this.maxPages = Math.ceil(this.pokemons.count / this.itemsPerPage);
     });
   }
 

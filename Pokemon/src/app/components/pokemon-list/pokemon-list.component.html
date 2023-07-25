@@ -12,7 +12,7 @@
       <p>HP: {{ pokemon.details?.hp }}</p>
       <p>Attack: {{ pokemon.details?.attack }}</p>
       <p>Defense: {{ pokemon.details?.defense }}</p>
-      <p>Type: {{ pokemon.details?.types }}</p>
+      <p class="pokemon-type">{{ pokemon.details?.types }}</p>
     </div>
 
     <ng-container *ngIf="!isCaught(pokemon); else caughtTemplate">
@@ -21,7 +21,7 @@
 
     <ng-template #caughtTemplate>
       <div class="pokeball">
-        <img src="assets/small-pokeball-icon-4.jpg" />
+        <img src="assets/small-pokeball-icon-4.jpg"/>
       </div>
     </ng-template>
 
@@ -29,3 +29,5 @@
     <button *ngIf="pokemon.detailsVisible" (click)="handleDetailsClick(pokemon)">Hide Details</button>
   </div>
 </div>
+<button (click)="pageChanged(currentPage -1)">Change Page backwards</button>
+<button (click)="pageChanged(currentPage + 1)">Change Page forward</button>
