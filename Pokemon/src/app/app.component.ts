@@ -12,17 +12,9 @@ import { UserService } from './services/user.service';
 
 export class AppComponent implements OnInit{
   
-  constructor(private router: Router, private userService: UserService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    if(this.userService.isUserLoggedIn()){
-      this.router.navigate(["/catalogue"])
-    } else[
-      this.router.navigate(["/"])
-    ]
-  }
-
-  isUserLoggedIn(): boolean {
-    return this.userService.isUserLoggedIn();
+    
   }
 }

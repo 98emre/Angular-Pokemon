@@ -6,18 +6,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-export class AuthGuard implements CanActivate {
+export class LoginFormGuard implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-
-    if (sessionStorage.getItem("username") === null || sessionStorage.getItem("username")?.trim() === ""  || sessionStorage.getItem("username") === undefined) {
-      return false;
+    if (sessionStorage.getItem("username") === null || sessionStorage.getItem("username")?.trim() === "" || sessionStorage.getItem("username") === undefined) {
+      return true;
     }
 
-    return true; 
+    return false; 
   }
 }
