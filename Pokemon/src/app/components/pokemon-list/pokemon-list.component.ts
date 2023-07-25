@@ -20,18 +20,23 @@ export class PokemonListComponent implements OnInit {
   }
 
   handleCatchClick(pokemon: any) {
- 
-    this.caughtPokemons.push(pokemon);
+    this.caughtPokemons.push(pokemon.name);
+    console.log(pokemon);
   }
 
   isCaught(pokemon: any) {
-    return this.caughtPokemons.includes(pokemon);
+    const ar: any = ['Charmander', 'Squirtle'];
+    for (let i = 0; i < ar.length; i++) {
+      this.caughtPokemons.push(ar[i]);
+    }
+    return this.caughtPokemons.includes(pokemon.name);
   }
   handleDetailsClick(pokemon: any): any {
     this.detailBool = true;
     this.pokemonService.getPokemonDetails(pokemon.name.toLowerCase()).subscribe(
-      (pokemonDetails) => {
-        console.log(pokemonDetails);
+      (response) => {
+        console.log(response);
+        alert(response.pokemonDetails.name + response.pokemonDetails.attack);
       },
       (error) => {
         console.error(error);

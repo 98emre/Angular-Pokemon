@@ -32,11 +32,16 @@ export class PokemonService {
     return this.http.get<any>('https://pokeapi.co/api/v2/pokemon/' + name)
       .pipe(
         map((response: any) => {
-          const pokemon = {
+          const pokemonDetails = {
             name: response.name,
             types: response.types.map((typeData: any) => typeData.type.name),
+            weight: response.weight,
+            height: response.height,
+            hp: response.stats.find((stat: any) => stat.stat.name === 'hp').base_stat,
+            attack: response.stats.find((stat: any) => stat.stat.name === 'attack').base_stat,
+            defense: response.stats.find((stat: any) => stat.stat.name === 'defense').base_stat
           };
-          return {pokemon}
+          return {pokemonDetails}
         })
       );
   }
