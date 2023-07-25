@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm, NgModel } from "@angular/forms";
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,12 +15,9 @@ export class LoginFormComponent {
 
   }
 
-  login(){
-      sessionStorage.setItem("username",this.username!)
+  login(form: NgForm){
+      sessionStorage.setItem("username",form.value.username)
       this.route.navigateByUrl("catalogue")
   }
 
-  usernameChange(event:any): void{
-      this.username = event.target.value.trim()
-  }
 }

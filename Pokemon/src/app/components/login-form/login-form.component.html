@@ -1,3 +1,20 @@
 <h3>login-form works</h3>
-<input type="text" placeholder="username" (keydown)="usernameChange($event)"/>
-<button (click) = "login()">Login</button>
+
+
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <input
+      type="text"
+      placeholder="username"
+      ngModel
+      name="username"
+      #username="ngModel"
+      required
+      minlength="5"
+    />
+  
+  
+    <p *ngIf="username.errors?.['required']">Username is required</p>
+    <p *ngIf="username.errors?.['minlength']">Username needs to be at least 5 characters</p>
+    <button type="submit">Login</button>
+  </form>
+  
