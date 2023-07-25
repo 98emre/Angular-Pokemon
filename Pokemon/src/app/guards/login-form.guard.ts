@@ -17,6 +17,7 @@ export class LoginFormGuard implements CanActivate {
       return true;
     }
 
+    this.router.navigate(["catalogue"]);
     return false; 
   }
 }

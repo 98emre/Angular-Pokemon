@@ -15,6 +15,7 @@ export class AuthGuard implements CanActivate {
 
 
     if (sessionStorage.getItem("username") === null || sessionStorage.getItem("username")?.trim() === ""  || sessionStorage.getItem("username") === undefined) {
+      this.router.navigate([""]);
       return false;
     }
 
