@@ -20,7 +20,7 @@ export class PokemonListComponent implements OnInit {
 
   constructor(private readonly route: ActivatedRoute, private readonly pokemonService: PokemonService, private readonly userService: UserService ) {}
 
-  public currentUser?: User
+  public currentUser!: User
 
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class PokemonListComponent implements OnInit {
     const userString = sessionStorage.getItem("user");
 
     this.currentUser = userString ? JSON.parse(userString): {}
-    console.log(this.currentUser)
+    console.log(this.currentUser?.pokemon)
   }
 
   pageChanged(newPage: number, ) {
@@ -44,7 +44,17 @@ export class PokemonListComponent implements OnInit {
   }
 
   handleCatchClick(pokemon: any) {
+    console.log("current:  ", this.currentUser)
+
+    let updatedUser: User = { ...this.currentUser };
+
+    updatedUser.pokemon = [... this.currentUser!.pokemon]
+    updatedUser.pokemon.push(pokemon.name);
+
     this.caughtPokemons.push(pokemon.name);
+    this.currentUser = updatedUser;
+    console.log("update: ", updatedUser)
+
   }
 
   removeCatch(pokemon: any){
