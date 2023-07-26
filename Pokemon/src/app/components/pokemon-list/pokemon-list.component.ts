@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Pokemon } from 'src/app/models/pokemon';
 import { User } from 'src/app/models/user';
 import { PokemonService } from 'src/app/services/pokemon-service';
 import { UserService } from 'src/app/services/user.service';
@@ -31,21 +32,10 @@ export class PokemonListComponent implements OnInit {
       return;
     }
     this.currentPage = newPage;
-    let pokemons = window.sessionStorage.getItem('pokemons');
-    if(pokemons) {
-      let allPokemons = JSON.parse(pokemons);
-      this.maxPages = Math.ceil(allPokemons.length / this.itemsPerPage);
-  
-      if(newPage >= 0 && newPage < this.maxPages){
-        let start = newPage * this.itemsPerPage;
-        let end = start + this.itemsPerPage;
-        this.pokemons = allPokemons.slice(start, end);
-      } else {
-        console.error("Page doesn't exist, pagenmr: ", newPage);
-      }
-    } else {
-      console.error("No pokemons found in SessionStorage");
-    }
+    this.pokemonService.getPokemons(this.currentPage * this.itemsPerPage, this.itemsPerPage).subscribe((poke: Pokemon[]) => {
+      this.pokemons = poke
+      this.maxPages = Math.ceil(this.pokemons.count / this.itemsPerPage);
+    });
   }
 }
 

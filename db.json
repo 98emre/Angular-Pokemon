@@ -63,7 +63,11 @@
         "Ivysaur",
         "Charmander",
         "Charmeleon",
-        "Blastoise"
+        "Blastoise",
+        "Charizard",
+        "Venomoth",
+        "Hypno",
+        "Krabby"
       ]
     },
     {
@@ -86,7 +90,9 @@
         "Pidgeot",
         "Rattata",
         "Blastoise",
-        "Caterpie"
+        "Caterpie",
+        "Bulbasaur",
+        "Ivysaur"
       ]
     }
   ]

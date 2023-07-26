@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Pokemon } from 'src/app/models/pokemon';
 import { User } from 'src/app/models/user';
 import { PokemonService } from 'src/app/services/pokemon-service';
 import { UserService } from 'src/app/services/user.service';
@@ -10,7 +11,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PokemonListItemComponent implements OnInit {
 
-  @Input() pokemon: any;
+  @Input() pokemon!: Pokemon;
+
+  pokemonDetails: Pokemon | undefined
 
   @Input() currentUser!: User
 
@@ -21,7 +24,7 @@ export class PokemonListItemComponent implements OnInit {
   ngOnInit(): void { }
 
 
-  handleCatchClick(pokemon: any) {
+  handleCatchClick(pokemon: Pokemon) {
     const userString = sessionStorage.getItem("user");
     this.currentUser = userString ? JSON.parse(userString): { }    
 
@@ -32,7 +35,6 @@ export class PokemonListItemComponent implements OnInit {
 
     this.currentUser = {...updatedUser};
     sessionStorage.setItem('user', JSON.stringify(  this.currentUser))
-    console.log("curr us : ", this.currentUser)
 
     this.userService.updateUser(updatedUser).subscribe(
       res => {
@@ -44,26 +46,29 @@ export class PokemonListItemComponent implements OnInit {
     );
   }
 
-  isCaught(pokemon: any) {
+  isCaught(pokemon: Pokemon) {
     const userString = sessionStorage.getItem("user");
     this.currentUser = userString ? JSON.parse(userString): { }    
     return this.currentUser.pokemon.includes(pokemon.name);
   }
 
-  handleDetailsClick(pokemon: any): any {
-    if (!pokemon.details) {
-      this.pokemonService.getPokemonDetails(pokemon.name.toLowerCase()).subscribe(
-        (response) => {
-          pokemon.details = response.pokemonDetails;
-          pokemon.detailsVisible = true;
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-    } else {
-      pokemon.detailsVisible = !pokemon.detailsVisible;
+  handleDetailsClick(pokemon: Pokemon) {
+    if (pokemon) {
+      if (this.pokemonDetails === undefined) {
+        this.pokemonService.getPokemonDetails(pokemon.name.toLowerCase()).subscribe(
+          (response) => {
+            this.pokemonDetails = response;
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      } else {
+        this.pokemonDetails = undefined;
+      }
     }
-  } 
+  }
+  
+  
 
 }

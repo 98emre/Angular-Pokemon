@@ -8,11 +8,11 @@
     <p class="pokemon-id">#{{ pokemon.id }}</p>
 
     
-    <div *ngIf="pokemon.detailsVisible">
-        <p>HP: {{ pokemon.details?.hp }}</p>
-        <p>Attack: {{ pokemon.details?.attack }}</p>
-        <p>Defense: {{ pokemon.details?.defense }}</p>
-        <p class="pokemon-type">{{ pokemon.details?.types }}</p>
+    <div *ngIf=" pokemonDetails">
+        <p>HP: {{  pokemonDetails.hp }}</p>
+        <p>Attack: {{ pokemonDetails.attack }}</p>
+        <p>Defense: {{ pokemonDetails.defense }}</p>
+        <p class="pokemon-type">{{ pokemonDetails.types }}</p>
       </div>
 
       <ng-container *ngIf="!isCaught(pokemon); else caughtTemplate">
@@ -25,8 +25,8 @@
         </div>
       </ng-template>
   
-      <button *ngIf="!pokemon.detailsVisible" (click)="handleDetailsClick(pokemon)"type="button">Details</button>
-      <button *ngIf="pokemon.detailsVisible" (click)="handleDetailsClick(pokemon)"type="button">Hide Details</button>
+      <button *ngIf="!pokemonDetails" (click)="handleDetailsClick(pokemon)"type="button">Details</button>
+      <button *ngIf="pokemonDetails" (click)="handleDetailsClick(pokemon)"type="button">Hide Details</button>
 
 
 </div>
