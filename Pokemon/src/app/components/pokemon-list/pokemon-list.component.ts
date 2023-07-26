@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Pokemon } from 'src/app/models/pokemon';
 import { User } from 'src/app/models/user';
 import { PokemonService } from 'src/app/services/pokemon-service';
 import { UserService } from 'src/app/services/user.service';
@@ -29,8 +30,8 @@ export class PokemonListComponent implements OnInit {
     }
 
     this.currentPage = newPage;
-    this.pokemonService.getPokemons(this.currentPage * this.itemsPerPage, this.itemsPerPage).subscribe((pokemons: any[]) => {
-      this.pokemons = pokemons
+    this.pokemonService.getPokemons(this.currentPage * this.itemsPerPage, this.itemsPerPage).subscribe((poke: Pokemon[]) => {
+      this.pokemons = poke
       this.maxPages = Math.ceil(this.pokemons.count / this.itemsPerPage);
     });
   }
