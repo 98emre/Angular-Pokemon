@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/models/user';
 import { PokemonService } from 'src/app/services/pokemon-service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-pokemon',
@@ -15,10 +18,17 @@ export class PokemonListComponent implements OnInit {
   itemsPerPage: number = 48
   maxPages: number = 10;
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private readonly route: ActivatedRoute, private readonly pokemonService: PokemonService, private readonly userService: UserService ) {}
+
+  public currentUser?: User
+
 
   ngOnInit() {
     this.pageChanged(0);
+    const userString = sessionStorage.getItem("user");
+
+    this.currentUser = userString ? JSON.parse(userString): {}
+    console.log(this.currentUser)
   }
 
   pageChanged(newPage: number, ) {
@@ -36,6 +46,7 @@ export class PokemonListComponent implements OnInit {
   handleCatchClick(pokemon: any) {
     this.caughtPokemons.push(pokemon.name);
   }
+
   removeCatch(pokemon: any){
     const index = this.caughtPokemons.indexOf(pokemon.name);
     if (index > -1) {
@@ -44,12 +55,9 @@ export class PokemonListComponent implements OnInit {
   }
 
   isCaught(pokemon: any) {
-    const ar: any = ['Charmander', 'Squirtle'];
-    for (let i = 0; i < ar.length; i++) {
-      this.caughtPokemons.push(ar[i]);
-    }
     return this.caughtPokemons.includes(pokemon.name);
   }
+
   handleDetailsClick(pokemon: any): any {
     if (!pokemon.details) {
       this.pokemonService.getPokemonDetails(pokemon.name.toLowerCase()).subscribe(

@@ -16,16 +16,20 @@ export class UserService {
     return this.http.get<User[]>(`http://localhost:3000/trainers?username=${username}`);
   }
 
-  postUser(newUser: User) {
-    this.http.post<User>('http://localhost:3000/trainers', newUser).subscribe({
-      next: (response) => {
-        console.log(response, 'user created');
-      },
-      error: (error) => {
-        console.log(error, 'user failed creation');
-      },
-    });
+  postUser(newUser: User): Observable<User> {
+    return this.http.post<User>('http://localhost:3000/trainers', newUser);
   }
+  
+  getUserById(userId: number): Observable<User> {
+    return this.http.get<User>(`http://localhost:3000/trainers/${userId}`)
+  }
+
+
+  updateUser(user: User){
+    return this.http.put(`http://localhost:3000/trainers/${user.id}`,user)
+  }
+
+  
 
   get user(): User {
     return this._user;

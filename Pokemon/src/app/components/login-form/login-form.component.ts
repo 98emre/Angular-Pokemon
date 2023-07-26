@@ -28,12 +28,18 @@ export class LoginFormComponent {
               username: form.value.username.trim(),
               pokemon: []
             }
-  
-            this._user = newUser
-            console.log(this._user)
-            sessionStorage.setItem("user", JSON.stringify(this._user))
-            this.userService.postUser(this._user)
-            this.router.navigate(["catalogue"])
+            
+            this.userService.postUser(newUser).subscribe({
+              next: (response) => {
+                console.log(response, 'user created');
+                this._user = response; 
+                sessionStorage.setItem("user", JSON.stringify(this._user));
+                this.router.navigate(["catalogue"]);
+              },
+              error: (error) => {
+                console.log(error, 'user failed creation');
+              },
+            });
           } 
           
           else {
