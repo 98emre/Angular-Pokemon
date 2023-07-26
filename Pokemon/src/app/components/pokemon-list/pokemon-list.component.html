@@ -1,3 +1,4 @@
+<h3>Pokemon list works</h3>
 <div class="pagination-container">
   <div class="pagination">
     <a (click)="pageChanged(currentPage - 1)">&laquo;</a>
@@ -8,49 +9,22 @@
     <a (click)="pageChanged(4)">5</a>
     <a (click)="pageChanged(5)">6</a>
     <a (click)="pageChanged(currentPage + 1)">&raquo;</a>
-  </div></div>
-  
-
-<div class="pokemon-list">
-  <div class="pokemon-container" *ngFor="let pokemon of pokemons">
-    <img
-      [src]="pokemon.image"
-      alt="Image of {{ pokemon.name }}"
-      class="pokemon-image"
-    />
-    <h2 class="pokemon-name">{{ pokemon.name }}</h2>
-    <p class="pokemon-id">#{{ pokemon.id }}</p>
-
-    <div *ngIf="pokemon.detailsVisible">
-      <p>HP: {{ pokemon.details?.hp }}</p>
-      <p>Attack: {{ pokemon.details?.attack }}</p>
-      <p>Defense: {{ pokemon.details?.defense }}</p>
-      <p class="pokemon-type">{{ pokemon.details?.types }}</p>
-    </div>
-
-    <ng-container *ngIf="!isCaught(pokemon); else caughtTemplate">
-      <button (click)="handleCatchClick(pokemon)" type="button">Catch</button>
-    </ng-container>
-
-    <ng-template #caughtTemplate>
-      <div class="pokeball">
-        <img src="assets/small-pokeball-icon-4.jpg" alt="pokeball" (click)="removeCatch(pokemon)"/>
-      </div>
-    </ng-template>
-
-    <button *ngIf="!pokemon.detailsVisible" (click)="handleDetailsClick(pokemon)"type="button">Details</button>
-    <button *ngIf="pokemon.detailsVisible" (click)="handleDetailsClick(pokemon)"type="button">Hide Details</button>
   </div>
 </div>
 
+<div class="pokemon-list">
+    <app-pokemon-list-item *ngFor="let pokemon of pokemons" [pokemon]="pokemon"></app-pokemon-list-item>
+</div>
+
 <div class="pagination-container">
-<div class="pagination">
-  <a (click)="pageChanged(currentPage - 1)">&laquo;</a>
-  <a (click)="pageChanged(0)">1</a>
-  <a (click)="pageChanged(1)">2</a>
-  <a (click)="pageChanged(2)">3</a>
-  <a (click)="pageChanged(3)">4</a>
-  <a (click)="pageChanged(4)">5</a>
-  <a (click)="pageChanged(5)">6</a>
-  <a (click)="pageChanged(currentPage + 1)">&raquo;</a>
-</div></div>
+  <div class="pagination">
+    <a (click)="pageChanged(currentPage - 1)">&laquo;</a>
+    <a (click)="pageChanged(0)">1</a>
+    <a (click)="pageChanged(1)">2</a>
+    <a (click)="pageChanged(2)">3</a>
+    <a (click)="pageChanged(3)">4</a>
+    <a (click)="pageChanged(4)">5</a>
+    <a (click)="pageChanged(5)">6</a>
+    <a (click)="pageChanged(currentPage + 1)">&raquo;</a>
+  </div>
+</div>

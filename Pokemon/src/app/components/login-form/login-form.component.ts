@@ -31,7 +31,6 @@ export class LoginFormComponent {
             
             this.userService.postUser(newUser).subscribe({
               next: (response) => {
-                console.log(response, 'user created');
                 this._user = response; 
                 sessionStorage.setItem("user", JSON.stringify(this._user));
                 this.router.navigate(["catalogue"]);
@@ -44,7 +43,6 @@ export class LoginFormComponent {
           
           else {
             this._user = user[0]
-            console.log(this._user)
             sessionStorage.setItem("user", JSON.stringify(this._user))
             this.router.navigate(["catalogue"])
           }

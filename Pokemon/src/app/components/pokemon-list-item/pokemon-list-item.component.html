@@ -1,1 +1,34 @@
-<p>pokemon-list-item works!</p>
+
+<div class="pokemon-container">
+    <h2 class="pokemon-name">{{ pokemon.name }}</h2>
+    <p class="pokemon-id">{{ pokemon.id }}</p>
+    <img [src]="pokemon.image" alt="Image of {{ pokemon.name }}" class="pokemon-image"/>
+
+    <h2 class="pokemon-name">{{ pokemon.name }}</h2>
+    <p class="pokemon-id">#{{ pokemon.id }}</p>
+
+    
+    <div *ngIf="pokemon.detailsVisible">
+        <p>HP: {{ pokemon.details?.hp }}</p>
+        <p>Attack: {{ pokemon.details?.attack }}</p>
+        <p>Defense: {{ pokemon.details?.defense }}</p>
+        <p class="pokemon-type">{{ pokemon.details?.types }}</p>
+      </div>
+
+      <ng-container *ngIf="!isCaught(pokemon); else caughtTemplate">
+        <button (click)="handleCatchClick(pokemon)" type="button">Catch</button>
+      </ng-container>
+         
+      <ng-template #caughtTemplate>
+        <div class="pokeball">
+          <img src="assets/small-pokeball-icon-4.jpg" alt="pokeball"/>
+        </div>
+      </ng-template>
+  
+      <button *ngIf="!pokemon.detailsVisible" (click)="handleDetailsClick(pokemon)"type="button">Details</button>
+      <button *ngIf="pokemon.detailsVisible" (click)="handleDetailsClick(pokemon)"type="button">Hide Details</button>
+
+
+</div>
+<!--   
+    -->

@@ -10,21 +10,83 @@
     },
     {
       "id": 2,
-      "username": "dewaldels",
-      "pokemon": []
+      "username": "ash ash",
+      "pokemon": [
+        "Caterpie",
+        "Charizard",
+        "Charmeleon"
+      ]
     },
     {
       "id": 3,
-      "username": "qqqqqq",
-      "pokemon": []
+      "username": "dewaldels",
+      "pokemon": [
+        "Charizard",
+        "Blastoise",
+        "Bulbasaur",
+        "Ivysaur",
+        "Charmander",
+        "Venusaur",
+        "Wartortle"
+      ]
     },
     {
       "id": 4,
-      "username": "Victor",
+      "username": "eeeee",
       "pokemon": [
         "Bulbasaur",
         "Ivysaur",
-        "Venusaur"
+        "Venusaur",
+        "Charmeleon",
+        "Charizard",
+        "Wartortle",
+        "Caterpie",
+        "Metapod",
+        "Weedle",
+        "Beedrill",
+        "Pidgeotto",
+        "Pidgeot",
+        "Raticate",
+        "Pikachu",
+        "Raichu"
+      ]
+    },
+    {
+      "id": 5,
+      "username": "dewaldels2",
+      "pokemon": [
+        "Weedle",
+        "Kakuna",
+        "Beedrill",
+        "Venusaur",
+        "Bulbasaur",
+        "Ivysaur",
+        "Charmander",
+        "Charmeleon",
+        "Blastoise"
+      ]
+    },
+    {
+      "id": 6,
+      "username": "qdqqdwq",
+      "pokemon": [
+        "Bulbasaur",
+        "Ivysaur"
+      ]
+    },
+    {
+      "id": 7,
+      "username": "aaaaa",
+      "pokemon": [
+        "Charmander",
+        "Venusaur",
+        "Wartortle",
+        "Charizard",
+        "Pidgeotto",
+        "Pidgeot",
+        "Rattata",
+        "Blastoise",
+        "Caterpie"
       ]
     }
   ]
