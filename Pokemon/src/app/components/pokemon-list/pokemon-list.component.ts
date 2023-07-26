@@ -54,7 +54,7 @@ export class PokemonListComponent implements OnInit {
     this.caughtPokemons.push(pokemon.name);
     this.currentUser = updatedUser;
     console.log("update: ", updatedUser)
-
+    sessionStorage.setItem('user', JSON.stringify(updatedUser))
 
     this.userService.updateUser(updatedUser).subscribe(
       res => {

@@ -1,4 +1,7 @@
 <p>profile works!</p>
-
+<h3>{{currentUser.username}}</h3>
+<ul *ngFor="let pokemon of currentUser.pokemon">
+    <li >{{pokemon}}</li>
+</ul>
 
 <button (click) = "logout()">Logout</button>

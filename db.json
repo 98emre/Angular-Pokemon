@@ -17,6 +17,15 @@
       "id": 3,
       "username": "qqqqqq",
       "pokemon": []
+    },
+    {
+      "id": 4,
+      "username": "Victor",
+      "pokemon": [
+        "Bulbasaur",
+        "Ivysaur",
+        "Venusaur"
+      ]
     }
   ]
 }

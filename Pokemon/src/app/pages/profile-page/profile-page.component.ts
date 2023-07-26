@@ -9,17 +9,13 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-  userDetails?: User;
 
   constructor(private readonly userService: UserService) { }
 
   ngOnInit(): void {
 
-  }
+    }
 
-  get user(): User{
-    console.log(this.userService.user)
-    return this.userService.user
-  }
+ 
 
 }
