@@ -13,17 +13,18 @@ export class PokemonService {
 
   constructor(private http: HttpClient) { }
 
-  getPokemons( offset: number, limit: number,): Observable<any[]> {
+  getPokemons(offset: number, limit: number): Observable<any[]> {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`).pipe(
       map((data: any) => {
-        return data.results.map((pokemon: any) => {
+        let newPokemons = data.results.map((pokemon: any) => {
           let parts = pokemon.url.split('/');
           let id = parts[parts.length - 2];
           let imageUrl = imageBaseUrl + id + png;
           let name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1).toLowerCase();
-
+  
           return { ...pokemon, id: +id, name: name, image: imageUrl};
         });
+        return newPokemons;
       })
     );
   }
@@ -45,5 +46,6 @@ export class PokemonService {
           return {pokemonDetails}
         })
       );
+      
   }
 }
