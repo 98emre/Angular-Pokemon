@@ -55,17 +55,43 @@ export class PokemonListComponent implements OnInit {
     this.currentUser = updatedUser;
     console.log("update: ", updatedUser)
 
+
+    this.userService.updateUser(updatedUser).subscribe(
+      res => {
+        console.log("update successful: ", res);
+      },
+      err => {
+        console.log("update error: ", err);
+      }
+    );
+
+    console.log("update: ", updatedUser);
+
   }
 
   removeCatch(pokemon: any){
-    const index = this.caughtPokemons.indexOf(pokemon.name);
-    if (index > -1) {
-      this.caughtPokemons.splice(index, 1);
+    console.log("current:  ", this.currentUser)
+
+    let updatedUser: User = { ...this.currentUser };
+
+    updatedUser.pokemon = [... this.currentUser!.pokemon]
+    updatedUser.pokemon = updatedUser.pokemon.filter(pokemonName => pokemonName !== pokemon.name);
+
+    this.currentUser = updatedUser;
+
+    this.userService.updateUser(updatedUser).subscribe(
+      res => {
+        console.log("update successful: ", res);
+      },
+      err => {
+        console.log("update error: ", err);
+      }
+    );
+    console.log("update: ", updatedUser);
     }
-  }
 
   isCaught(pokemon: any) {
-    return this.caughtPokemons.includes(pokemon.name);
+    return this.currentUser.pokemon.includes(pokemon.name);
   }
 
   handleDetailsClick(pokemon: any): any {
