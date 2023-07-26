@@ -6,6 +6,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { LoginFormGuard } from './guards/login-form.guard';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent,
+    component: ProfilePageComponent,
     canActivate: [AuthGuard]
   },
 

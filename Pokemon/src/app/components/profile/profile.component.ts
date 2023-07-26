@@ -11,7 +11,7 @@ export class ProfileComponent {
   constructor(private router: Router) { }
 
   logout(){
-    sessionStorage.removeItem("username")
+    sessionStorage.removeItem("user")
     this.router.navigateByUrl("/")
   
   }

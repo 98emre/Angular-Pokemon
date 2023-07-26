@@ -3,7 +3,60 @@
     {
       "id": 1,
       "username": "ash",
-      "pokemon": ["bulbasaur", "pikachu"]
+      "pokemon": [
+        "bulbasaur",
+        "pikachu"
+      ]
+    },
+    {
+      "id": 2,
+      "username": "dewaldels",
+      "pokemon": []
+    },
+    {
+      "id": 3,
+      "username": "dewaldels2",
+      "pokemon": []
+    },
+    {
+      "id": 4,
+      "username": "dewaldels4",
+      "pokemon": []
+    },
+    {
+      "id": 5,
+      "username": "ash ash2",
+      "pokemon": []
+    },
+    {
+      "id": 6,
+      "username": "ash ash",
+      "pokemon": []
+    },
+    {
+      "id": 7,
+      "username": "",
+      "pokemon": []
+    },
+    {
+      "id": 8,
+      "username": "eeeee2",
+      "pokemon": []
+    },
+    {
+      "id": 9,
+      "username": "dewaldels2p",
+      "pokemon": []
+    },
+    {
+      "id": 10,
+      "username": "12e1e21e",
+      "pokemon": []
+    },
+    {
+      "id": 11,
+      "username": "12345",
+      "pokemon": []
     }
   ]
 }
