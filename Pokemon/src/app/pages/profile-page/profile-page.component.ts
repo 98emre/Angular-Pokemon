@@ -10,7 +10,7 @@ import { User } from 'src/app/models/user';
 })
 export class ProfilePageComponent implements OnInit {
 
-  constructor(private readonly userService: UserService) { }
+  constructor() { }
 
   ngOnInit(): void {
 
