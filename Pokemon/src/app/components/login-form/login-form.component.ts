@@ -14,11 +14,17 @@ export class LoginFormComponent {
 
   private _user!: User
 
-  constructor(private readonly router : Router, private readonly userService: UserService){
+  loading: boolean = false
+  apiError: string = ""
 
+  constructor(private readonly router : Router, private readonly userService: UserService){
+  
   }
 
-  login(form: NgForm) {
+  login(form: NgForm) {                
+    
+    this.loading = true
+
     this.userService.getUser(form.value.username.trim())
       .subscribe({
         next: (user) => {
@@ -34,6 +40,7 @@ export class LoginFormComponent {
                 this._user = response; 
                 sessionStorage.setItem("user", JSON.stringify(this._user));
                 this.router.navigate(["catalogue"]);
+                
               },
               error: (error) => {
                 console.log(error, 'user failed creation');
@@ -46,9 +53,13 @@ export class LoginFormComponent {
             sessionStorage.setItem("user", JSON.stringify(this._user))
             this.router.navigate(["catalogue"])
           }
+
+          this.loading = false
         },
         error: error => {
           console.log(error)
+          this.loading = false
+          this.apiError = "API ERROR - CHECK INTERNET CONNECTION"
         }
       })
   }

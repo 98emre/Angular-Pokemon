@@ -1,21 +1,32 @@
 
-<h3>login-form works</h3>
 
-
-<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-    <input
-      type="text"
-      placeholder="username"
-      ngModel
-      name="username"
-      #username="ngModel"
-      required
-      minlength="2"
+<form class="loginForm" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    
+  <div className="row mb-3 justify-content-center">
+      <input
+        class="inputText"
+        type="text"
+        placeholder="username"
+        ngModel
+        name="username"
+        #username="ngModel"
+        required
+        minlength="5"
     />
-  
-  
-    <p *ngIf="username.errors?.['required']">Username is required</p>
-    <p *ngIf="username.errors?.['minlength']">Username needs to be at least 5 characters</p>
-    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </div>
+
+    <p *ngIf="username.errors?.['required']" class="text-danger">Username is required</p>
+    <p *ngIf="username.errors?.['minlength']" class="text-danger">Username needs to be at least 5 characters</p>
+    <h4 *ngIf="apiError" class="text-danger">{{apiError}}</h4>
+
+    <div class="row justify-content-center">
+      <div class="d-grid gap-2 col-2 mx-auto">
+          <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+      </div>
+    </div>
+
+    <div class="row justify-content-center loadingText" >
+      <h6 class="loginBigText" *ngIf="loading">Loading..... {{loading}}</h6>
+    </div>
   </form>
   
