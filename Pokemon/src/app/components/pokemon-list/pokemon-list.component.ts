@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { forkJoin } from 'rxjs';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonService } from 'src/app/services/pokemon-service';
 
@@ -40,20 +41,19 @@ export class PokemonListComponent implements OnInit {
     }
   }
 
-  fetchAndStorePokemonDetails(currentPage: string, pokemons: Pokemon[]) {
-    let pokemonList: Pokemon[] = []
 
-    for (const pokemon of pokemons) {
-      this.pokemonService.getPokemonDetails(pokemon.name.toLowerCase()).subscribe(
-        (response) => {
-          pokemonList.push(response)
-          sessionStorage.setItem(currentPage, JSON.stringify(pokemonList));
-        },
-        (error) => {
-          console.error(error);
-        }
+
+  fetchAndStorePokemonDetails(currentPage: string, pokemons: Pokemon[]) {
+      let observables = pokemons.map(pokemon => this.pokemonService.getPokemonDetails(pokemon.name.toLowerCase()));
+  
+      forkJoin(observables).subscribe(
+          (pokemonList: Pokemon[]) => {
+              sessionStorage.setItem(currentPage, JSON.stringify(pokemonList));
+          },
+          (error) => {
+              console.error(error);
+          }
       );
-    }
   }
   
 }
