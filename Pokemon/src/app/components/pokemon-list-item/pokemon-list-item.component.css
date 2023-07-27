@@ -92,10 +92,9 @@
   }
   .button{
     position: relative;
-    background-color: rgb(255, 255, 255); /* This is a solid color, not transparent */
-    border: 1px solid rgb(110, 109, 109); /* This adds a black border around the button */
+    border: 1px solid rgb(110, 109, 109); 
     color: black;
-    padding: 7px 10px; /* This adds some internal space around the button text */
+    padding: 7px 10px; 
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -108,8 +107,8 @@
   }
   
   .button:hover {
-    background-color: rgb(200, 200, 200); /* On hover, the button color changes */
-    color: white; /* On hover, the text color changes to white */
+    background-color: rgb(200, 200, 200);
+    color: white; 
   }
   
   .pagination-container {
