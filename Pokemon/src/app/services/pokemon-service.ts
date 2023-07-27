@@ -14,6 +14,7 @@ export class PokemonService {
 
   constructor(private http: HttpClient) { }
 
+  
   getPokemons( offset: number, limit: number,): Observable<Pokemon[]> {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`).pipe(
       map((data: any) => {
@@ -36,7 +37,7 @@ export class PokemonService {
           const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1);
           const pokemonDetails: Pokemon = {
             id: response.id,
-            image: `https://pokeapi.co/api/v2/pokemon/${name}`,
+            image: imageBaseUrl + response.id + png,
             name: capitalize(response.name),
             types: response.types.map((typeData: any) => capitalize(typeData.type.name)),
             weight: response.weight,
