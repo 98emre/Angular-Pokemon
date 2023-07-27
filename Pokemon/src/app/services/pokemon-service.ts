@@ -18,7 +18,7 @@ export class PokemonService {
   getPokemons( offset: number, limit: number,): Observable<Pokemon[]> {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`).pipe(
       map((data: any) => {
-        return data.results.map((pokemon: any) => {
+        let newPokemons = data.results.map((pokemon: any) => {
           let parts = pokemon.url.split('/');
           let id = parts[parts.length - 2];
           let imageUrl = imageBaseUrl + id + png;
@@ -26,6 +26,7 @@ export class PokemonService {
 
           return { ...pokemon, id: +id, name: name, image: imageUrl} as Pokemon[];
         });
+        return newPokemons;
       })
     );
   }
@@ -49,5 +50,6 @@ export class PokemonService {
           return pokemonDetails
         })
       );
+      
   }
 }

@@ -7,33 +7,75 @@
   }
   
   .pokemon-container {
+    border-radius: 5px;
     position: relative;
     flex: 1 0 21%; 
     box-sizing: border-box;
-    margin-left: 20%;
+    min-width: 225px;
+    min-height: 250px;
     margin: 1%;
     padding: 20px;
     border: 1px solid #000000;
     text-align: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
+  .d-hp{
+    position: absolute;
+    top: 56%;
+    left: 2%;
+    font-family:monospace;
+    
+  }
+  .d-attack{
+    position: absolute;
+    top: 56%;
+    left: 35%;
+    font-family:monospace;
+  }
+  .d-defense{
+    position: absolute;
+    top: 56%;
+    left: 75%;
+    font-family:monospace;
+  }
+  .d-weight{
+    position: absolute;
+    top: 68%;
+    left: 10%;
+    font-family:monospace;
+  }
+  .d-height{
+    position: absolute;
+    top: 68%;
+    left: 60%;
+    font-family:monospace;
+  }
+  .d-types{
+    position: absolute;
+    top: 40%;
+    left: 60%;
+    font-family:monospace;
+  }
   
   .pokemon-image {
-    width: 40%;
+    width: 45%;
     height: auto;
   }
   
   .pokemon-name {
     font-size: 20px;
     font-weight: bold;
+  
+    text-align: center;
   }
   
   .pokemon-id {
+    font-family:monospace;
     position: absolute;
     top: 0;
     left: 0;
     padding: 5px;
-    font-size: 18px;
+    font-size: 15px;
     color: #000000;
     background-color: lightgray;
   }
@@ -49,16 +91,28 @@
     width: 75px;
     margin-top: 8px;
   }
-  button{
-    background-color: lightgrey;
+  .button-details{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
     margin-left: 5px;
+    top: 85%;
+    right: 10%;
+  }  
+  .button-catch{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    margin-left: 5px;
+    top: 85%;
+    left: 10%;
   }
+  
   .pokemon-type {
+    font-family:monospace;
     position: absolute;
     top: 0;
     left: 0;
     padding: 5px;
-    font-size: 18px;
+    font-size: 15px;
     color: #000000;
     background-color: lightgray;
   }
@@ -88,4 +142,8 @@
     background-color: #4CAF50;
     color: white;
     border: 1px solid #4CAF50;
+  }
+  h2 {
+    text-align: center;
+    font-family:monospace;
   }
