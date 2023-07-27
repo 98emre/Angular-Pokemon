@@ -12,31 +12,29 @@ import { UserService } from 'src/app/services/user.service';
 export class PokemonListItemComponent implements OnInit {
 
   @Input() pokemon!: Pokemon;
+  @Input() currentPage!: number
+  @Input() currentUser!: User
 
   pokemonDetails: Pokemon | undefined
 
-  @Input() currentUser!: User
+   
+  checkDetailStatus: boolean = false
 
-  constructor(private readonly pokemonService: PokemonService, private readonly userService: UserService) {
+  constructor(private readonly userService: UserService) { }
+
+
+  ngOnInit(): void {
+ 
   }
-
-
-  ngOnInit(): void { }
-
 
   handleCatchClick(pokemon: Pokemon) {
     const userString = sessionStorage.getItem("user");
     this.currentUser = userString ? JSON.parse(userString): { }    
+    this.currentUser.pokemon.push(pokemon.name);
 
-    let updatedUser: User = { ...this.currentUser };
-  
-    updatedUser.pokemon = [... this.currentUser!.pokemon]
-    updatedUser.pokemon.push(pokemon.name);
-
-    this.currentUser = {...updatedUser};
     sessionStorage.setItem('user', JSON.stringify(  this.currentUser))
 
-    this.userService.updateUser(updatedUser).subscribe(
+    this.userService.updateUser(this.currentUser).subscribe(
       res => {
         console.log("update successful: ", res);
       },
@@ -53,22 +51,18 @@ export class PokemonListItemComponent implements OnInit {
   }
 
   handleDetailsClick(pokemon: Pokemon) {
-    if (pokemon) {
-      if (this.pokemonDetails === undefined) {
-        this.pokemonService.getPokemonDetails(pokemon.name.toLowerCase()).subscribe(
-          (response) => {
-            this.pokemonDetails = response;
-          },
-          (error) => {
-            console.error(error);
-          }
-        );
-      } else {
-        this.pokemonDetails = undefined;
+    const currentPageKey = `page-${this.currentPage}`;
+    const currentPageString = sessionStorage.getItem(currentPageKey);
+    
+    this.checkDetailStatus = !this.checkDetailStatus
+  
+    if (currentPageString) {
+      const currentPagePokemons: Pokemon[] = JSON.parse(currentPageString);
+      const pokemonDetails = currentPagePokemons.find(p => p.name === pokemon.name);
+
+      if (pokemonDetails) {
+        this.pokemonDetails = pokemonDetails;
       }
     }
   }
-  
-  
-
 }

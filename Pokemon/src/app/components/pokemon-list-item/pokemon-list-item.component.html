@@ -1,4 +1,6 @@
 
+
+<!--Pokemon list item-->
 <div class="pokemon-container">
     <h2 class="pokemon-name">{{ pokemon.name }}</h2>
     <p class="pokemon-id">{{ pokemon.id }}</p>
@@ -8,7 +10,7 @@
     <p class="pokemon-id">#{{ pokemon.id }}</p>
 
     
-    <div *ngIf=" pokemonDetails">
+    <div *ngIf="checkDetailStatus && pokemonDetails">
         <p>HP: {{  pokemonDetails.hp }}</p>
         <p>Attack: {{ pokemonDetails.attack }}</p>
         <p>Defense: {{ pokemonDetails.defense }}</p>
@@ -25,10 +27,8 @@
         </div>
       </ng-template>
   
-      <button *ngIf="!pokemonDetails" (click)="handleDetailsClick(pokemon)"type="button">Details</button>
-      <button *ngIf="pokemonDetails" (click)="handleDetailsClick(pokemon)"type="button">Hide Details</button>
+      <button *ngIf="!checkDetailStatus" (click)="handleDetailsClick(pokemon)"type="button">Details</button>
+      <button *ngIf="checkDetailStatus" (click)="handleDetailsClick(pokemon)"type="button">Hide Details</button>
 
 
 </div>
-<!--   
-    -->

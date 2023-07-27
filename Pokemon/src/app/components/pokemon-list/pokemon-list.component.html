@@ -13,7 +13,7 @@
 </div>
 
 <div class="pokemon-list">
-    <app-pokemon-list-item *ngFor="let pokemon of pokemons" [pokemon]="pokemon"></app-pokemon-list-item>
+    <app-pokemon-list-item *ngFor="let pokemon of pokemons" [pokemon]="pokemon" [currentPage]="currentPage"></app-pokemon-list-item>
 </div>
 
 <div class="pagination-container">
