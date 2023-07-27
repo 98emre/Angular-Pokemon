@@ -1,7 +1,12 @@
 <p>profile works!</p>
 <h3>{{currentUser.username}}</h3>
 <ul *ngFor="let pokemon of currentUser.pokemon">
-    <li >{{pokemon}}</li>
+    <li >
+        {{pokemon}}
+        <img src= "https://img.pokemondb.net/sprites/diamond-pearl/normal/{{pokemon.toLowerCase()}}.png" alt="Image of {{ pokemon}}"width="50"/>
+        <button (click)="handleRemovePokemon(pokemon)">Remove pokemon</button>
+    </li>
+
 </ul>
 
 <button (click) = "logout()">Logout</button>

@@ -1,10 +1,6 @@
-
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Pokemon } from 'src/app/models/pokemon';
-import { User } from 'src/app/models/user';
 import { PokemonService } from 'src/app/services/pokemon-service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-pokemon',
@@ -12,30 +8,51 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./pokemon-list.component.css'],
 })
 export class PokemonListComponent implements OnInit {
-  public pokemons: any = [];
-  
-  currentPage: number = 0;
-  itemsPerPage: number = 48
-  maxPages: number = 10;
+  public pokemons: Pokemon[] = [];
+  public currentPage: number = 0;
+  public itemsPerPage: number = 48;
+  public maxPages: number = 10;
 
-  constructor(private readonly route: ActivatedRoute, private readonly pokemonService: PokemonService, private readonly userService: UserService ) {}
+  constructor(private readonly pokemonService: PokemonService) {}
 
   ngOnInit() {
-    this.pokemonService.getPokemons(0, 1008).subscribe((pokemons: any[]) => {
-      window.sessionStorage.setItem('pokemons', JSON.stringify(pokemons));
-      this.pageChanged(0);
-    }); 
-  }  
+    this.pageChanged(0);
+  }
+
   pageChanged(newPage: number) {
-    if(newPage < 0 || newPage >= this.maxPages){
+    if (newPage < 0 || newPage >= this.maxPages) {
       console.error("Page doesn't exist, pagenmr: ", newPage);
-      return;
     }
     this.currentPage = newPage;
-    this.pokemonService.getPokemons(this.currentPage * this.itemsPerPage, this.itemsPerPage).subscribe((poke: Pokemon[]) => {
-      this.pokemons = poke
-      this.maxPages = Math.ceil(this.pokemons.count / this.itemsPerPage);
-    });
-  }
-}
+    const startIndex = this.currentPage * this.itemsPerPage;
 
+    const currentPageKey = `page-${this.currentPage}`;
+    const pokemonListString = sessionStorage.getItem(currentPageKey);
+
+    if (pokemonListString) {
+      this.pokemons = JSON.parse(pokemonListString);
+    } else {
+      this.pokemonService.getPokemons(startIndex, this.itemsPerPage).subscribe((pokemons: Pokemon[]) => {
+        this.pokemons = pokemons;
+        this.fetchAndStorePokemonDetails(currentPageKey, pokemons);
+      });
+    }
+  }
+
+  fetchAndStorePokemonDetails(currentPage: string, pokemons: Pokemon[]) {
+    let pokemonList: Pokemon[] = []
+
+    for (const pokemon of pokemons) {
+      this.pokemonService.getPokemonDetails(pokemon.name.toLowerCase()).subscribe(
+        (response) => {
+          pokemonList.push(response)
+          sessionStorage.setItem(currentPage, JSON.stringify(pokemonList));
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    }
+  }
+  
+}

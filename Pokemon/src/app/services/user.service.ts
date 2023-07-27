@@ -11,7 +11,6 @@ export class UserService {
 
   constructor(private readonly http: HttpClient) {}
 
-
   getUser(username: string): Observable<User[]> {
     return this.http.get<User[]>(`http://localhost:3000/trainers?username=${username}`);
   }
@@ -28,9 +27,7 @@ export class UserService {
   updateUser(user: User){
     return this.http.put(`http://localhost:3000/trainers/${user.id}`,user)
   }
-
   
-
   get user(): User {
     return this._user;
   }

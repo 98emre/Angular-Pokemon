@@ -14,7 +14,13 @@
       "pokemon": [
         "Caterpie",
         "Charizard",
-        "Charmeleon"
+        "Charmeleon",
+        "Charmander",
+        "Pidgey",
+        "Pidgeotto",
+        "Pidgeot",
+        "Bulbasaur",
+        "Ivysaur"
       ]
     },
     {
@@ -27,7 +33,12 @@
         "Ivysaur",
         "Charmander",
         "Venusaur",
-        "Wartortle"
+        "Wartortle",
+        "Charmeleon",
+        "Squirtle",
+        "Diglett",
+        "Caterpie",
+        "Metapod"
       ]
     },
     {
@@ -94,6 +105,26 @@
         "Bulbasaur",
         "Ivysaur"
       ]
+    },
+    {
+      "id": 8,
+      "username": "ssaas",
+      "pokemon": []
+    },
+    {
+      "id": 9,
+      "username": "testen",
+      "pokemon": [
+        "Squirtle",
+        "Venusaur",
+        "Charmander",
+        "Charizard"
+      ]
+    },
+    {
+      "id": 10,
+      "username": "tesaaaa",
+      "pokemon": []
     }
   ]
 }
