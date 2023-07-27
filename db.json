@@ -34,9 +34,6 @@
       "id": 3,
       "username": "dewaldels",
       "pokemon": [
-        "Blastoise",
-        "Bulbasaur",
-        "Ivysaur",
         "Charmander",
         "Venusaur",
         "Wartortle",
@@ -55,7 +52,9 @@
         "Registeel",
         "Regirock",
         "Venomoth",
-        "Mewtwo"
+        "Mewtwo",
+        "Moltres",
+        "Zapdos"
       ]
     },
     {
