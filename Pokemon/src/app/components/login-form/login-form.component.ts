@@ -33,6 +33,8 @@ export class LoginFormComponent {
               next: (response) => {
                 this._user = response; 
                 sessionStorage.setItem("user", JSON.stringify(this._user));
+                this.userService.user = this._user
+                console.log(this.userService.user.username)
                 this.router.navigate(["catalogue"]);
               },
               error: (error) => {
@@ -44,6 +46,8 @@ export class LoginFormComponent {
           else {
             this._user = user[0]
             sessionStorage.setItem("user", JSON.stringify(this._user))
+            this.userService.user = this._user
+            console.log(this.userService.user.username)
             this.router.navigate(["catalogue"])
           }
         },

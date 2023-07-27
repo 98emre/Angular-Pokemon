@@ -12,7 +12,8 @@ import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { CataloguePageComponent } from './pages/catalogue-page/catalogue-page.component';
-import { ErrorPageComponent } from './pages/error-page/error-page.component'
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +22,11 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component'
     ProfileComponent,
     PokemonListComponent,
     PokemonListItemComponent,
+    NavbarComponent,
     LoginPageComponent,
     ProfilePageComponent,
     CataloguePageComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
