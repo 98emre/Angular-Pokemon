@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { CataloguePageComponent } from './pages/catalogue-page/catalogue-page.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { LoginFormGuard } from './guards/login-form.guard';

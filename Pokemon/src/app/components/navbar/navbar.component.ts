@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-navbar',
@@ -7,18 +7,14 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit{
-
-  constructor(private readonly userService: UserService){
-  }
-
   
+  currentUser!: User
+  
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-
-  userLoggedIn(){
-    return this.userService.user.username.length !=0
+    const userString = sessionStorage.getItem("user");
+    this.currentUser = userString ? JSON.parse(userString): { } 
   }
 
 }

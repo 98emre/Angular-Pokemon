@@ -16,7 +16,6 @@ export class ProfileComponent {
   ngOnInit(): void {
     const userString = sessionStorage.getItem('user');
     this.currentUser = userString ? JSON.parse(userString) : {};
-    console.log(this.currentUser?.username);
   }
 
   logout() {

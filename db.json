@@ -1,4 +1,11 @@
 {
+  "user": [
+    {
+      "id": 1,
+      "username": "test",
+      "fullname": "sss"
+    }
+  ],
   "trainers": [
     {
       "id": 1,
@@ -27,7 +34,6 @@
       "id": 3,
       "username": "dewaldels",
       "pokemon": [
-        "Charizard",
         "Blastoise",
         "Bulbasaur",
         "Ivysaur",
@@ -47,7 +53,9 @@
         "Natu",
         "Suicune",
         "Registeel",
-        "Regirock"
+        "Regirock",
+        "Venomoth",
+        "Mewtwo"
       ]
     },
     {
@@ -134,6 +142,14 @@
       "id": 10,
       "username": "tesaaaa",
       "pokemon": []
+    },
+    {
+      "id": 11,
+      "username": "000000",
+      "pokemon": [
+        "Bulbasaur",
+        "Ivysaur"
+      ]
     }
   ]
 }
