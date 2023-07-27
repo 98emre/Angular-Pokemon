@@ -2,23 +2,23 @@
 
 <!--Pokemon list item-->
 <div class="pokemon-container">
-    <h2 class="pokemon-name">{{ pokemon.name }}</h2>
-    <p class="pokemon-id">{{ pokemon.id }}</p>
-    <img [src]="pokemon.image" alt="Image of {{ pokemon.name }}" class="pokemon-image"/>
+  <img [src]="pokemon.image" alt="Image of {{ pokemon.name }}" class="pokemon-image"/>
+  <p class="pokemon-id">#{{ pokemon.id }}</p>
+  <div>
+  <h2 class="pokemon-name">{{ pokemon.name }}</h2>
+  <p class="">{{ pokemon.types }}</p>
+  </div>
+  <div *ngIf="checkDetailStatus && pokemonDetails">
+        <p class="d-hp">HP:{{  pokemonDetails.hp }}</p>
+        <p class="d-attack">ATK:{{ pokemonDetails.attack }}</p>
+        <p class="d-defense">DEF:{{ pokemonDetails.defense }}</p>
 
-    <h2 class="pokemon-name">{{ pokemon.name }}</h2>
-    <p class="pokemon-id">#{{ pokemon.id }}</p>
-
-    
-    <div *ngIf="checkDetailStatus && pokemonDetails">
-        <p>HP: {{  pokemonDetails.hp }}</p>
-        <p>Attack: {{ pokemonDetails.attack }}</p>
-        <p>Defense: {{ pokemonDetails.defense }}</p>
-        <p class="pokemon-type">{{ pokemonDetails.types }}</p>
+        <p class="d-height">Height:{{pokemonDetails.height}}</p>
+        <p class="d-weight">Weight:{{pokemonDetails.weight}}</p>
       </div>
 
       <ng-container *ngIf="!isCaught(pokemon); else caughtTemplate">
-        <button (click)="handleCatchClick(pokemon)" type="button">Catch</button>
+        <button (click)="handleCatchClick(pokemon)" type="button" class="button-catch">Catch</button>
       </ng-container>
          
       <ng-template #caughtTemplate>
@@ -27,8 +27,8 @@
         </div>
       </ng-template>
   
-      <button *ngIf="!checkDetailStatus" (click)="handleDetailsClick(pokemon)"type="button">Details</button>
-      <button *ngIf="checkDetailStatus" (click)="handleDetailsClick(pokemon)"type="button">Hide Details</button>
+      <button *ngIf="!checkDetailStatus" (click)="handleDetailsClick(pokemon)"type="button" class="button-details">Details</button>
+      <button *ngIf="checkDetailStatus" (click)="handleDetailsClick(pokemon)"type="button" class="button-details">Hide Details</button>
 
 
 </div>

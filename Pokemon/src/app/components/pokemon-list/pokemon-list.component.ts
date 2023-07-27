@@ -11,7 +11,7 @@ export class PokemonListComponent implements OnInit {
   public pokemons: Pokemon[] = [];
   public currentPage: number = 0;
   public itemsPerPage: number = 48;
-  public maxPages: number = 10;
+  public maxPages: number = 8;
 
   constructor(private readonly pokemonService: PokemonService) {}
 
@@ -22,6 +22,7 @@ export class PokemonListComponent implements OnInit {
   pageChanged(newPage: number) {
     if (newPage < 0 || newPage >= this.maxPages) {
       console.error("Page doesn't exist, pagenmr: ", newPage);
+      return;
     }
     this.currentPage = newPage;
     const startIndex = this.currentPage * this.itemsPerPage;
