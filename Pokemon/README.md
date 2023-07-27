@@ -1,30 +1,27 @@
-# Pokemon
+# Pokémon
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
+This project is part of Noroff Accelerate program. A website to view and catch pokémons.
 
-## Development server
+## Technologies used
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Angular, TypeScript, HTML, CSS, Bootstrap, Api deployed via Railway
 
-## Code scaffolding
+## Install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone repo
+2. Make sure you have angular installed `npm install -g @angular/cli`
+3. Open project in editor and run `ng serve` from command line
+4. Project will be hosted on http://localhost:4200
 
 ## Component Tree
 [Component Tree](src/assets/Angular.Assignment.pdf)
 
-## Running end-to-end tests
+## Contribute
+No contribution as this is a assignment.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Status
+Project is still being developed.
 
-## Further help
+## Project by:
+Emre Demirel & Victor Lundqvist
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
