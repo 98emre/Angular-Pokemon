@@ -13,7 +13,7 @@
     box-sizing: border-box;
     min-width: 225px;
     min-height: 250px;
-    margin: 1%;
+    margin: 5%;
     padding: 20px;
     border: 1px solid #000000;
     text-align: center;
@@ -21,21 +21,20 @@
   }
   .d-hp{
     position: absolute;
-    top: 56%;
-    left: 2%;
+    top: 58%;
+    left: 7%;
     font-family:monospace;
-    
   }
   .d-attack{
     position: absolute;
-    top: 56%;
-    left: 35%;
+    top: 58%;
+    left: 38%;
     font-family:monospace;
   }
   .d-defense{
     position: absolute;
-    top: 56%;
-    left: 75%;
+    top: 58%;
+    left: 70%;
     font-family:monospace;
   }
   .d-weight{
@@ -91,31 +90,28 @@
     width: 75px;
     margin-top: 8px;
   }
-  .button-details{
-    position: absolute;
-    background-color: rgb(255, 255, 255);
-    margin-left: 5px;
-    top: 85%;
-    right: 10%;
-  }  
-  .button-catch{
-    position: absolute;
-    background-color: rgb(255, 255, 255);
-    margin-left: 5px;
-    top: 85%;
-    left: 10%;
+  .button{
+    position: relative;
+    background-color: rgb(255, 255, 255); /* This is a solid color, not transparent */
+    border: 1px solid rgb(110, 109, 109); /* This adds a black border around the button */
+    color: black;
+    padding: 7px 10px; /* This adds some internal space around the button text */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 30%;
+    margin-left: 5%;
+    font-size: 12px;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    border-radius: 2px;
   }
   
-  .pokemon-type {
-    font-family:monospace;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 5px;
-    font-size: 15px;
-    color: #000000;
-    background-color: lightgray;
+  .button:hover {
+    background-color: rgb(200, 200, 200); /* On hover, the button color changes */
+    color: white; /* On hover, the text color changes to white */
   }
+  
   .pagination-container {
     display: flex;
     justify-content: center;
@@ -123,7 +119,6 @@
   .pagination {
     display: inline-block;
   }
-  
   .pagination a {
     margin: 5px;
     cursor: pointer;
@@ -146,4 +141,10 @@
   h2 {
     text-align: center;
     font-family:monospace;
+  }
+  .pokemon-type {
+    font-family:monospace;
+    position: relative;
+    font-size: 12px;
+    color: #000000;
   }

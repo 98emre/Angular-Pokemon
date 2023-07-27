@@ -1,8 +1,8 @@
 <div class="pagination-container">
   <div class="pagination">
-    <h1>Page: {{currentPage+1}}</h1>
     <a *ngIf="currentPage >= 1"(click)="pageChanged(currentPage - 1)">&laquo;</a>
     <a *ngIf="currentPage < maxPages-1" (click)="pageChanged(currentPage + 1)">&raquo;</a>
+    <h3 style="text-align: center;">Page: {{currentPage+1}}</h3>
   </div>
 </div>
 
