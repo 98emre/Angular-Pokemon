@@ -1,10 +1,13 @@
 <div class="pagination-container">
   <div class="pagination">
-    <a *ngIf="currentPage >= 1"(click)="pageChanged(currentPage - 1)">&laquo;</a>
-    <a *ngIf="currentPage < maxPages-1" (click)="pageChanged(currentPage + 1)">&raquo;</a>
-    <h3 style="text-align: center;">Page: {{currentPage+1}}</h3>
+    <a *ngIf="currentPage >= 1; else placeholder"(click)="pageChanged(currentPage - 1)">&laquo;</a>
+    <ng-template #placeholder><a>&laquo;</a></ng-template>
+    <span>{{currentPage+1}}</span>
+    <a *ngIf="currentPage < maxPages-1; else placeholderRight" (click)="pageChanged(currentPage + 1)">&raquo;</a>
+    <ng-template #placeholderRight><a>&raquo;</a></ng-template>
   </div>
 </div>
+
 
 <div class="pokemon-list">
     <app-pokemon-list-item *ngFor="let pokemon of pokemons" [pokemon]="pokemon" [currentPage]="currentPage"></app-pokemon-list-item>

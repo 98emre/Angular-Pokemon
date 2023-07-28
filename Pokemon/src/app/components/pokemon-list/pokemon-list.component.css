@@ -12,7 +12,12 @@
   justify-content: center;
 }
 .pagination {
-  display: inline-block;
+  display:flex;
+  align-items: center
+}
+.pagination span {
+  padding: 5px 8px;
+  font-size: 25px;
 }
 
 .pagination a {
