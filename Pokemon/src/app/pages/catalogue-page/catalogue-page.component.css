@@ -2,6 +2,13 @@
     font-family: pokemon-hollow;
     src: url("../../../assets/Pokemon-Hollow.ttf")
 }
+
+.catalogue-container {
+    background: linear-gradient(to top, #ac13db, rgb(48, 141, 113));
+    padding: 100px;
+    min-height: 100vh;
+}
+
 h1 {
     text-align: center;
     font-family: pokemon-hollow;
