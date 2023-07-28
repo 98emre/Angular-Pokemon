@@ -19,11 +19,19 @@ export class ProfileComponent {
   }
 
   logout() {
+    if(!confirm(`Are you sure you want to logout ${this.currentUser.username} ?`)){
+      return
+    }
+
     sessionStorage.clear();
     this.router.navigateByUrl('/');
   }
 
   handleRemovePokemon(pokemon: string) {
+    if(!confirm(`Do you want to remove ${pokemon}?`)){
+      return
+    }
+
       this.currentUser.pokemon = [...this.currentUser.pokemon.filter(name => name != pokemon)];
 
       sessionStorage.setItem('user', JSON.stringify(this.currentUser));
