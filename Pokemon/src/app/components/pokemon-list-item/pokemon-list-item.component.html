@@ -1,13 +1,12 @@
-
-
-<!--Pokemon list item-->
 <div class="pokemon-container">
   <img [src]="pokemon.image" alt="Image of {{ pokemon.name }}" class="pokemon-image"/>
   <p class="pokemon-id">#{{ pokemon.id }}</p>
-
-  <p class="pokemon-type">{{ pokemon.types }}</p>
   <h2 class="pokemon-name">{{ pokemon.name }}</h2>
-
+  
+  <div class="type-images">
+    <img [src]="getTypeImageUrl(pokemon.types[0])" alt="Type image 1" class="type-image" [title]="pokemon.types[0]">
+    <img *ngIf="pokemon.types[1]" [src]="getTypeImageUrl(pokemon.types[1])" alt="Type image 2" class="type-image" [title]="pokemon.types[1]">
+</div>
 
   <div *ngIf="checkDetailStatus && pokemonDetails">
         <p class="d-hp">HP:{{  pokemonDetails.hp }}</p>
@@ -17,19 +16,12 @@
         <p class="d-weight">Weight:{{pokemonDetails.weight}}</p>
         <br>
       </div>
-
       <ng-container *ngIf="!isCaught(pokemon) && !checkDetailStatus">
         <button (click)="handleCatchClick(pokemon)" type="button" class="button">Catch</button>
       </ng-container>
-         
-      
-        <div class="pokeball" *ngIf="isCaught(pokemon)">
+         <div class="pokeball" *ngIf="isCaught(pokemon)">
           <img src="assets/small-pokeball-icon-4.jpg" alt="pokeball"/>
         </div>
-     
-  
       <button *ngIf="!checkDetailStatus" (click)="handleDetailsClick(pokemon)"type="button" class="button">Details</button>
       <button *ngIf="checkDetailStatus" (click)="handleDetailsClick(pokemon)"type="button" class="button">Hide Details</button>
-
-
 </div>
