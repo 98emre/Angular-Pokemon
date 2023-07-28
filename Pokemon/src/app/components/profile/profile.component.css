@@ -1,71 +1,121 @@
-
-
-.user-text{
-    color: bisque;
-    padding: 10px;
-    margin-top: 10px;
+.user-text {
+  color: yellow;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10px;
+  margin-top: 10px;
 }
 
 .profile-text {
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: -20px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: -20px;
 }
 
 .button-logout {
-    background-color: transparent;
-    border: none;
-    cursor: pointer; 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.delete-button{
-    font-size: 15px;
+.delete-button {
+  font-size: 15px;
 }
 
-.profile-container{
-    margin-top: 20px;
+.profile-container {
+  margin-top: 20px;
 }
 
 .pokemon-item {
-    padding: 10px;
+  padding: 10px;
 }
 
 .pokemon-box {
-    background-color: bisque;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+  background: linear-gradient(to bottom, #e91414, rgb(238, 231, 231));
+  border-radius: 30px;
+  border: 7px solid;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: blinkBorderAnimation 5s infinite;
+}
+
+.pokemon-item-text {
+  align-content: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding: 10px;
+  font-size: 25px;
 }
 
 .pokemon-img {
-    width: 120px; 
-    animation: floatAnimation 0.5s infinite;
+  width: 120px;
+  animation: floatAnimation 0.5s infinite;
 }
 
 .pokemon-img-ball {
-    width: 120px;
-    animation:  rotateAnimation 4s infinite;
+  width: 120px;
+  animation: rotateAnimation 4s infinite;
 }
 
+.button-remove-pokemon {
+  background-color: transparent;
+  border: none;
+  transform: translate(0%, 20%);
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.button-remove-pokemon:hover {
+  color: #e91414;
+}
+
+.pokemon-remove-item {
+  font-size: 30px;
+}
 
 @keyframes floatAnimation {
-    0%, 100% {
-      transform: translateY(0); 
-    }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
 
-    50% {
-      transform: translateY(-10px); 
-    }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes rotateAnimation {
-    0% {
-      transform: rotateY(0deg) rotateX(0deg);
-    }
-    50% {
-      transform: rotateY(180deg) rotateX(-180deg);
-    }
-    100% {
-      transform: rotateY(360deg) rotateX(-360deg);
-    }
+  0% {
+    transform: rotateY(0deg) rotateX(0deg);
   }
+  50% {
+    transform: rotateY(180deg) rotateX(-180deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(-360deg);
+  }
+}
+
+
+@keyframes blinkBorderAnimation {
+  0%, 100% {
+    border-color:  black;
+  }
+
+  50% {
+    border-color: rgb(230, 180, 180);
+  }
+}
+
+@media (max-width: 786px) {
+  .pokemon-item {
+    margin-bottom: 20px;
+  }
+
+  .pokemon-item-text {
+    font-size: 25px;
+  }
+}
