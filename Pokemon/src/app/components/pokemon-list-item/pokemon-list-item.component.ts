@@ -25,8 +25,6 @@ export class PokemonListItemComponent implements OnInit {
   }
 
   handleCatchClick(pokemon: Pokemon) {
-    //const userString = sessionStorage.getItem("user");
-    //this.currentUser = userString ? JSON.parse(userString): { }    
     this.currentUser.pokemon.push(pokemon.name);
 
     sessionStorage.setItem('user', JSON.stringify(  this.currentUser))
@@ -45,18 +43,11 @@ export class PokemonListItemComponent implements OnInit {
 
   handleDetailsClick(pokemon: Pokemon) {
     this.checkDetailStatus = !this.checkDetailStatus
-
-    //const currentPageKey = `page-${this.currentPage}`;
     const currentPageString = sessionStorage.getItem(`page-${this.currentPage}`);
     
     if (currentPageString) {
       const currentPokemonPage: Pokemon[] = JSON.parse(currentPageString);
       this.pokemonDetails = currentPokemonPage.find(p => p.name === pokemon.name);
-
-      /*
-      if (pokemonDetails) {
-        this.pokemonDetails = pokemonDetails;
-      } */
     }
   }
 }

@@ -22,7 +22,7 @@ export class PokemonListComponent implements OnInit {
 
   pageChanged(newPage: number) {
     if (newPage < 0 || newPage >= this.maxPages) {
-      console.error("Page doesn't exist, pagenmr: ", newPage);
+      console.error("Page number doesn't exist: ", newPage);
       return;
     }
     this.currentPage = newPage;
@@ -33,7 +33,9 @@ export class PokemonListComponent implements OnInit {
 
     if (pokemonListString) {
       this.pokemons = JSON.parse(pokemonListString);
-    } else {
+    } 
+    
+    else {
       this.pokemonService.getPokemons(startIndex, this.itemsPerPage).subscribe((pokemons: Pokemon[]) => {
         this.pokemons = pokemons;
         this.fetchAndStorePokemonDetails(currentPageKey, pokemons);

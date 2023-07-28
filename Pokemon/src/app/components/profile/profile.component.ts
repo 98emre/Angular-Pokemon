@@ -24,9 +24,6 @@ export class ProfileComponent {
   }
 
   handleRemovePokemon(pokemon: string) {
-      //const userString = sessionStorage.getItem('user');
-      //this.currentUser = userString ? JSON.parse(userString) : {};
-
       this.currentUser.pokemon = [...this.currentUser.pokemon.filter(name => name != pokemon)];
 
       sessionStorage.setItem('user', JSON.stringify(this.currentUser));
