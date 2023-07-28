@@ -12,6 +12,8 @@ Angular, TypeScript, HTML, CSS, Bootstrap, Api deployed via Railway
 
 ## Component Tree
 [Component Tree](src/assets/Angular.Assignment.pdf)
+<img width="2265" alt="Angular Assignment" src="https://github.com/98emre/Angular-Pokemon/assets/138670212/04696002-a15a-449e-9e49-ae44ad0475c0">
+
 
 ## Login-page
 This is the landing page. To login, simply enter your preferred username. This will be your account information. Your username and catched pokémons will be stored.
