@@ -1,0 +1,43 @@
+.navbar {
+  background-color: #ffcb05;
+  padding: 10px 0px;
+}
+.nav-container{
+ margin: 8%;
+}
+.navbar .navbar-brand {
+  color: #fff;
+}
+
+.navbar .nav-link {
+  color: rgba(1, 1, 1, 0.5);
+  font-size: 22px;
+}
+
+.navbar .nav-link:hover {
+  color: #fff;
+}
+
+.navbar-logo {
+  height: 80px;
+  width: auto;
+
+  position: inherit;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  list-style-type: none;
+  margin-top: 15%;
+  margin-left: 40px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.nav-item:last-child {
+  margin-right: 0;
+}
