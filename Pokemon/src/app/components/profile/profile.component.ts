@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ProfileComponent {
   public currentUser!: User;
-  
+
   constructor(private readonly router: Router, private readonly userService: UserService) {}
 
   ngOnInit(): void {

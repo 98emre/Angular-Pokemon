@@ -9,6 +9,7 @@
 .profile-text {
     padding: 10px;
     margin-top: 10px;
+    margin-bottom: -20px;
 }
 
 .button-logout {
@@ -38,4 +39,33 @@
 
 .pokemon-img {
     width: 120px; 
+    animation: floatAnimation 0.5s infinite;
 }
+
+.pokemon-img-ball {
+    width: 120px;
+    animation:  rotateAnimation 4s infinite;
+}
+
+
+@keyframes floatAnimation {
+    0%, 100% {
+      transform: translateY(0); 
+    }
+
+    50% {
+      transform: translateY(-10px); 
+    }
+}
+
+@keyframes rotateAnimation {
+    0% {
+      transform: rotateY(0deg) rotateX(0deg);
+    }
+    50% {
+      transform: rotateY(180deg) rotateX(-180deg);
+    }
+    100% {
+      transform: rotateY(360deg) rotateX(-360deg);
+    }
+  }

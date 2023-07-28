@@ -2,17 +2,23 @@
 
 
 <div>
-    <h3 class="user-text">
+    
+    <h4 class="user-text">
         Welcome {{currentUser.username}}
-    </h3>
+        <button class="button-logout" (click) = "logout()">  
+            <i class="btn btn-danger bi bi-door-closed-fill"></i>
+        </button>
+    </h4>
 </div>
 
-<button class="button-logout" (click) = "logout()">  
-    <i class="btn btn-danger bi bi-door-closed-fill"></i>
-</button>
 
 <div class="container">
-    <h3 class="profile-text">Pokemon Collection</h3>
+
+    <div>
+        <h3 class="profile-text">Pokemon Collection <img class="pokemon-img-ball" src="assets/small-pokeball-icon-4.jpg" alt="pokeball" width="100px"/></h3>
+    </div>
+
+
     <div class="row">
         <div class="col-md-3" *ngFor="let pokemon of currentUser.pokemon">
             <div class="pokemon-item">
