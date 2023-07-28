@@ -16,6 +16,19 @@ Angular, TypeScript, HTML, CSS, Bootstrap, Api deployed via Railway
 ## Component Tree
 [Component Tree](src/assets/Angular.Assignment.pdf)
 
+## Login-page
+This is the landing page. To login, simply enter your preferred username. This will be your account information. We store your username and catched pokemons.
+
+![login](https://github.com/98emre/Angular-Pokemon/assets/138670212/086e5489-2ba8-4d69-8fd8-6c70f5d51031)
+
+## Catalogue-page
+On this page, you can browse through the pokémons (up to gen 3), inspect their details and catch them to store them on your trainer page.
+
+![catalogue](https://github.com/98emre/Angular-Pokemon/assets/138670212/70c1ae67-1a37-4e3b-aded-3ee85d2f9dac)
+
+## Trainer Page
+Here you can browse through your catched pokemons and release them. Here you can also log out from your account.
+
 ## Contribute
 No contribution as this is a assignment.
 
