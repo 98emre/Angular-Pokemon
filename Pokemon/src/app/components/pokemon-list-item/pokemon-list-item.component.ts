@@ -32,6 +32,7 @@ export class PokemonListItemComponent implements OnInit {
   }
 
   handleCatchClick(pokemon: Pokemon) {
+    if(confirm(`Do you want to catch ${pokemon.name}?`)){
     this.currentUser.pokemon.push(pokemon.name);
 
     sessionStorage.setItem('user', JSON.stringify(  this.currentUser))
@@ -40,6 +41,10 @@ export class PokemonListItemComponent implements OnInit {
       res => { console.log("Update successful: ", res); },
       err => { console.log("Update error: ", err); }
     );
+  }
+  else{
+    return;
+  }
   }
 
   isCaught(pokemon: Pokemon) {

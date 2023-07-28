@@ -14,7 +14,7 @@
         <p class="d-defense">DEF:{{ pokemonDetails.defense }}</p>
         <p class="d-height">Height:{{pokemonDetails.height}}</p>
         <p class="d-weight">Weight:{{pokemonDetails.weight}}</p>
-        <br>
+        <br><br>
       </div>
       <ng-container *ngIf="!isCaught(pokemon) && !checkDetailStatus">
         <button (click)="handleCatchClick(pokemon)" type="button" class="button">Catch</button>
