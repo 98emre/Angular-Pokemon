@@ -1,6 +1,20 @@
+@font-face {
+    font-family: pokemon-hollow;
+    src: url("../../../assets/Pokemon-Hollow.ttf")
 
-.profile-container {
+}
+
+.trainer-container {
     background: linear-gradient(to top, #ac13db, rgb(48, 141, 113));
     padding: 100px;
-    min-height: 150vh;
+    min-height: 100vh;
 }
+
+
+.trainer-text {
+    text-align: center;
+    font-family: pokemon-hollow;
+    font-size: 48px;
+    color: rgb(5, 5, 5);
+}
+
