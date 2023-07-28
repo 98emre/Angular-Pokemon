@@ -2,13 +2,15 @@
   <img [src]="pokemon.image" alt="Image of {{ pokemon.name }}" class="pokemon-image"/>
   <p class="pokemon-id">#{{ pokemon.id }}</p>
   <h2 class="pokemon-name">{{ pokemon.name }}</h2>
-  
-  <div class="type-images">
-    <img [src]="getTypeImageUrl(pokemon.types[0])" alt="Type image 1" class="type-image" [title]="pokemon.types[0]">
-    <img *ngIf="pokemon.types[1]" [src]="getTypeImageUrl(pokemon.types[1])" alt="Type image 2" class="type-image" [title]="pokemon.types[1]">
-</div>
+
+
 
   <div *ngIf="checkDetailStatus && pokemonDetails">
+    <div *ngIf="pokemonDetails && pokemonDetails.types && pokemonDetails.types[0]" class="type-images">
+      <img src="https://raw.githubusercontent.com/msikma/pokesprite/master/misc/type-logos/gen8/{{pokemonDetails.types[0].toLowerCase()}}.png" alt="Type image 1" class="type-image" title="{{ pokemonDetails.types[0] }}">
+      <img *ngIf="pokemonDetails.types[1]" src="https://raw.githubusercontent.com/msikma/pokesprite/master/misc/type-logos/gen8/{{pokemonDetails.types[1].toLowerCase()}}.png" alt="Type image 1" class="type-image" title="{{pokemonDetails.types[1] }}" >
+    </div>
+    
         <p class="d-hp">HP:{{  pokemonDetails.hp }}</p>
         <p class="d-attack">ATK:{{ pokemonDetails.attack }}</p>
         <p class="d-defense">DEF:{{ pokemonDetails.defense }}</p>

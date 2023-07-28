@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon';
 import { User } from 'src/app/models/user';
+import { PokemonService } from 'src/app/services/pokemon-service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -15,22 +16,16 @@ export class PokemonListItemComponent implements OnInit {
   @Input() currentUser!: User
 
   pokemonDetails: Pokemon | undefined
-  typeImageBase: string = "https://raw.githubusercontent.com/msikma/pokesprite/master/misc/type-logos/gen8/"
-  png: string = ".png"
   checkDetailStatus: boolean = false
 
-  constructor(private readonly userService: UserService) { }
 
-  ngOnInit(): void {
- 
-  }
-  getTypeImageUrl(type: string): string {
-    type = type.toLowerCase()
-    const url = `${this.typeImageBase}${type}${this.png}`;
-    console.log(url);
-    return url;
-  }
+  constructor(private readonly userService: UserService, private readonly pokemonService: PokemonService) { }
 
+
+    ngOnInit(): void {
+
+    }
+    
   handleCatchClick(pokemon: Pokemon) {
     if(confirm(`Do you want to catch ${pokemon.name}?`)){
     this.currentUser.pokemon.push(pokemon.name);
