@@ -41,8 +41,6 @@ export class PokemonListComponent implements OnInit {
     }
   }
 
-
-
   fetchAndStorePokemonDetails(currentPage: string, pokemons: Pokemon[]) {
       let observables = pokemons.map(pokemon => this.pokemonService.getPokemonDetails(pokemon.name.toLowerCase()));
   
@@ -55,5 +53,4 @@ export class PokemonListComponent implements OnInit {
           }
       );
   }
-  
 }

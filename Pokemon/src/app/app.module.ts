@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
@@ -13,7 +14,6 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { CataloguePageComponent } from './pages/catalogue-page/catalogue-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [

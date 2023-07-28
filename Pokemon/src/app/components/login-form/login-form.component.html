@@ -2,7 +2,6 @@
 
 <form class="loginForm" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
     
-  <div className="row mb-3 justify-content-center">
       <input
         class="inputText"
         type="text"
@@ -13,20 +12,18 @@
         required
         minlength="5"
     />
-    </div>
 
     <p *ngIf="username.errors?.['required']" class="text-danger">Username is required</p>
     <p *ngIf="username.errors?.['minlength']" class="text-danger">Username needs to be at least 5 characters</p>
     <h4 *ngIf="apiError" class="text-danger">{{apiError}}</h4>
 
-    <div class="row justify-content-center">
-      <div class="d-grid gap-2 col-2 mx-auto">
-          <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Login</button>
-      </div>
+    <div class="d-grid gap-2 col-2 mx-auto">
+        <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Login</button>
     </div>
 
-    <div class="row justify-content-center loadingText" >
-      <h6 class="loginBigText" *ngIf="loading">Loading..... {{loading}}</h6>
-    </div>
-  </form>
+      <h6 class="loadingText" *ngIf="loading">
+        Loading <img src="assets/small-pokeball-icon-4.jpg" alt="pokeball" width="50"/>
+      </h6>
+
+</form>
   

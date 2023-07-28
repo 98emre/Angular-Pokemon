@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class ProfileComponent {
   public currentUser!: User;
   
-  constructor( private readonly router: Router,private readonly userService: UserService) {}
+  constructor(private readonly router: Router, private readonly userService: UserService) {}
 
   ngOnInit(): void {
     const userString = sessionStorage.getItem('user');
@@ -24,8 +24,8 @@ export class ProfileComponent {
   }
 
   handleRemovePokemon(pokemon: string) {
-      const userString = sessionStorage.getItem('user');
-      this.currentUser = userString ? JSON.parse(userString) : {};
+      //const userString = sessionStorage.getItem('user');
+      //this.currentUser = userString ? JSON.parse(userString) : {};
 
       this.currentUser.pokemon = [...this.currentUser.pokemon.filter(name => name != pokemon)];
 

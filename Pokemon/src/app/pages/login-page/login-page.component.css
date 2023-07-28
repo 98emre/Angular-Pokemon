@@ -1,40 +1,45 @@
 
 .loginContainer {
     background: linear-gradient(to top, #3763db, rgb(232, 255, 102));
-    padding: 50px;
+    padding: 150px;
     min-height: 100vh;
   }
+
   
   .loginBigText {
       color:rgb(58, 139, 245);
-      margin-bottom: 5%;
       font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
       animation: slideInRight 5s;
+      padding-top: 10px;
       text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  
   }
-  
+
+  .image {
+    width: 300px;
+    margin-top: -10%;
+    margin-bottom: -10%;
+    padding: 10px;
+    animation: spinAnimation 6s infinite;
+  }
+
   .loginSmallText {
       color:rgb(245, 236, 58);
       margin-bottom: 3%;
       margin-top: 3%;
       font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      animation: slideInRight 5s;
+      animation: slideInRightAnimation 5s;
       text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   }
   
   .loginForm {
     background: linear-gradient(to top, #631d1d, #eb6363);
-    border: 5px solid; 
-    padding: 20px;
+    border: 5px solid;
     margin-right: 20%;
     margin-left: 20%;
     border-radius: 50px; 
-    animation: blinkBorder 4s infinite;
+    animation: blinkBorderAnimation 4s infinite;
   }
   
- 
-
   .animatedText {
     animation: slideInRight 5s;
   }
@@ -53,32 +58,33 @@
     color: #ffffff;
   }
   
-  @media (max-width: 550px) {
+  @media (max-width: 768px) {
     .loginContainer {
       padding: 10px; 
     }  
+
+    .image {
+      width: 200px;
+    }
   
     .loginForm {
       margin: 10% 1%;
     }
   
-    .inputText{
-      padding: 15px;
-      margin: 10% 1%;
-    }
   }
   
   
-  @keyframes slideInRight {
+  @keyframes slideInRightAnimation {
       0% {
         transform: translateX(-100%);
       }
+
       100% {
         transform: translateX(0);
       }
   }
     
-  @keyframes blinkBorder {
+  @keyframes blinkBorderAnimation {
       0%, 100% {
         border-color: rgb(245, 40, 33); 
       }
@@ -86,3 +92,12 @@
         border-color: transparent; 
       }
   }
+
+@keyframes spinAnimation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}

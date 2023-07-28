@@ -1,12 +1,4 @@
 
- .loginSmallText {
-      color:rgb(245, 236, 58);
-      margin-bottom: 3%;
-      margin-top: 3%;
-      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      animation: slideInRight 5s;
-      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  }
   
   .loginForm {
     background: white;
@@ -15,6 +7,7 @@
     margin-right: 20%;
     margin-left: 20%;
     border-radius: 50px; 
+    margin-bottom: 3%;
   }
   
   .inputText {
@@ -26,20 +19,11 @@
   }
   
   .loadingText {
-    color: rgb(228, 238, 228);
+    color: rgb(9, 10, 9);
   }
   
   .loadingText img {
     animation: rotateImage 5s linear infinite;
-  }
-  
-  .loginFormImage {
-    border-radius: 50%;
-    animation: floatAnimation 2s ease-in-out infinite, waveShadowAnimation 10s linear infinite;
-  }
-  
-  .animatedText {
-    animation: slideInRight 5s;
   }
   
   .btn-primary {
@@ -56,51 +40,9 @@
     color: #ffffff;
   }
   
-  @media (max-width: 550px) {
-    .loginContainer {
-      padding: 10px; 
-    }  
-  
-    .loginForm {
-      margin: 10% 1%;
-    }
-  
+  @media (max-width: 800px) { 
     .inputText{
       padding: 15px;
-      margin: 10% 1%;
     }
   }
   
-  @keyframes waveShadowAnimation {
-    0%, 100% {
-      box-shadow: 15px 5px 5px 5px rgba(135, 217, 247, 0.5);
-    }
-    25% {
-      box-shadow: 5px 15px 5px 5px rgba(4, 222, 186, 0.5);
-    }
-    50% {
-      box-shadow: -5px 5px 5px 15px rgba(135, 217, 247, 0.5);
-    }
-    75% {
-      box-shadow: 5px -5px 15px 5px rgba(4, 222, 186, 0.5);
-    }
-  }
-  
-  @keyframes floatAnimation {
-      0%, 100% {
-        transform: translateY(0); 
-      }
-      50% {
-        transform: translateY(-5px); 
-      }
-  }
-    
-  @keyframes rotateImage {
-      from{
-          transform: rotate(0deg);
-      }
-  
-      to {
-          transform: rotate(360deg)
-      }
-  }
