@@ -1,6 +1,6 @@
 .navbar {
-  background-color: #ffcb05;
-  padding: 10px 0px;
+  background-image: linear-gradient(to right, #ffcb05, #f8d857);
+  padding: 10px 10px;
 }
 .nav-container{
  margin-bottom: 50px;
@@ -10,13 +10,20 @@
 }
 
 .navbar .nav-link {
-  color: rgba(1, 1, 1, 0.5);
+  color: rgba(0, 0, 0, 0.5);
   font-size: 22px;
+  font-family: monospace;
 }
 
-.navbar .nav-link:hover {
-  color: #fff;
+
+.nav-link.profile-link:hover {
+  color: blue;
 }
+
+.nav-link.catalogue-link:hover {
+  color: red;
+}
+
 
 .navbar-logo {
   height: 80px;
@@ -32,7 +39,8 @@
 
 .nav-item {
   list-style-type: none;
-  margin-top: 15%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   margin-left: 40px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: bold;
