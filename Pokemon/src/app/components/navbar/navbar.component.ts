@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,20 +7,16 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  public catalogueRoute = false;
-  public profileRoute = false;
+  public showNavbar = false;
 
   constructor(private readonly router: Router) {
-
     this.router.events.subscribe((event) => {
-      
        if(event instanceof NavigationEnd){
-        this.catalogueRoute = this.router.url.includes('/catalogue');
-        this.profileRoute = this.router.url.includes('/profile');
-
+        this.showNavbar = ['/catalogue', '/profile'].includes(this.router.url);
        }
     })
   }
+
   ngOnInit(): void {
   }
 }
