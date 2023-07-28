@@ -2,19 +2,29 @@
 
 
 <div>
-    <h3>{{currentUser.username}}</h3>
-    <button (click) = "logout()">Logout</button>
+    <h3 class="user-text">
+        Welcome {{currentUser.username}}
+    </h3>
 </div>
 
+<button class="button-logout" (click) = "logout()">  
+    <i class="btn btn-danger bi bi-door-closed-fill"></i>
+</button>
 
-<h3>Pokemon Collection</h3>
+<div class="container">
+    <h3 class="profile-text">Pokemon Collection</h3>
+    <div class="row">
+        <div class="col-md-3" *ngFor="let pokemon of currentUser.pokemon">
+            <div class="pokemon-item">
 
-<div>
-    <ul *ngFor="let pokemon of currentUser.pokemon">
-        <li >
-            {{pokemon}}
-            <img src= "https://img.pokemondb.net/sprites/black-white/normal/{{pokemon.toLowerCase()}}.png" alt="Image of {{ pokemon}}"width="50"/>
-            <button (click)="handleRemovePokemon(pokemon)">Remove pokemon</button>
-        </li>
-    </ul>    
+                <div class="pokemon-box">
+                    <h5>{{pokemon}}</h5>
+                    <img class="pokemon-img" src="https://img.pokemondb.net/sprites/black-white/normal/{{pokemon.toLowerCase()}}.png" alt="Image of {{pokemon}}" />
+                    <button class="btn btn-danger" (click)="handleRemovePokemon(pokemon)">
+                        <i class="bi bi-trash-fill delete-button"></i>
+                 </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

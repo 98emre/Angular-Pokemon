@@ -1,0 +1,41 @@
+
+
+.user-text{
+    color: bisque;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.profile-text {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.button-logout {
+    background-color: transparent;
+    border: none;
+    cursor: pointer; 
+}
+
+.delete-button{
+    font-size: 15px;
+}
+
+.profile-container{
+    margin-top: 20px;
+}
+
+.pokemon-item {
+    padding: 10px;
+}
+
+.pokemon-box {
+    background-color: bisque;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.pokemon-img {
+    width: 120px; 
+}
