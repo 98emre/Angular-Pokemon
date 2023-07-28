@@ -15,13 +15,20 @@ export class PokemonListItemComponent implements OnInit {
   @Input() currentUser!: User
 
   pokemonDetails: Pokemon | undefined
-
+  typeImageBase: string = "https://raw.githubusercontent.com/msikma/pokesprite/master/misc/type-logos/gen8/"
+  png: string = ".png"
   checkDetailStatus: boolean = false
 
   constructor(private readonly userService: UserService) { }
 
   ngOnInit(): void {
  
+  }
+  getTypeImageUrl(type: string): string {
+    type = type.toLowerCase()
+    const url = `${this.typeImageBase}${type}${this.png}`;
+    console.log(url);
+    return url;
   }
 
   handleCatchClick(pokemon: Pokemon) {
